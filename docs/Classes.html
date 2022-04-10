@@ -74,11 +74,11 @@
           <div class="section-content">
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/A%20Special%20Button%20Class%20That%20Can%20Be%20Filled%20With%20A%20Gradient"></a>
-                <a name="//apple_ref/swift/Section/A Special Button Class That Can Be Filled With A Gradient" class="dashAnchor"></a>
+                <a name="/A%20Special%20Button%20Class%20That%20Can%20Mask%20A%20Gradient"></a>
+                <a name="//apple_ref/swift/Section/A Special Button Class That Can Mask A Gradient" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/A%20Special%20Button%20Class%20That%20Can%20Be%20Filled%20With%20A%20Gradient"></a>
-                  <h3 class="section-name"><span>A Special Button Class That Can Be Filled With A Gradient</span>
+                  <a class="section-name-link" href="#/A%20Special%20Button%20Class%20That%20Can%20Mask%20A%20Gradient"></a>
+                  <h3 class="section-name"><span>A Special Button Class That Can Mask A Gradient</span>
 </h3>
                 </div>
               </div>
@@ -96,12 +96,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This class can be displayed with either the text filled with a gradient, or the background filled, and the text &ldquo;cut out&rdquo; of it.
+                        <p>This class can be displayed with either the text (or image) filled with a gradient, or the background filled, and the text (or image) &ldquo;cut out&rdquo; of it.
 All behavior is the same as any other UIButton.</p>
 
 <p>This allows you to specify a border, which will be included in the gradient fill.
 If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
 The border will be filled with the gradient, as well as the text or image.</p>
+
+<p>The button can have either text or image (not both).
+Text is given priority. If text is provided, then the images are ignored (and not displayed).
+Images must be rendererable as template.</p>
+
+<p>This button is quite simple, and &ldquo;old-fashioned,&rdquo; compared to the current buttons.
+It doesn&rsquo;t have support for all the scheming and styling that UIButton has, and should be treated as &ldquo;Default&rdquo; style.</p>
 
                         <a href="Classes/RVS_MaskButton.html" class="slightly-smaller">See more</a>
                       </div>

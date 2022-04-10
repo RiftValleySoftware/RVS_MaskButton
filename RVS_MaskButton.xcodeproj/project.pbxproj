@@ -20,6 +20,8 @@
 		D4E60FFF280313CF00F562A9 /* RVS_MaskButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46197F72802FAC900EC71A9 /* RVS_MaskButton.framework */; platformFilter = ios; };
 		D4E61000280313CF00F562A9 /* RVS_MaskButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D46197F72802FAC900EC71A9 /* RVS_MaskButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4E610062803202600F562A9 /* let's go digital regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E610052803202600F562A9 /* let's go digital regular.ttf */; };
+		D4E6100B28033F6D00F562A9 /* RVS-BasicGCDTimer in Frameworks */ = {isa = PBXBuildFile; productRef = D4E6100A28033F6D00F562A9 /* RVS-BasicGCDTimer */; };
+		D4E6100D28035BAD00F562A9 /* RVS_MaskButton_TestHarness_TabBase_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6100C28035BAD00F562A9 /* RVS_MaskButton_TestHarness_TabBase_ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_TestHarness_Clock_ViewController.swift; sourceTree = "<group>"; };
 		D4B141BA2803031900E9C7E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4E610052803202600F562A9 /* let's go digital regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "let's go digital regular.ttf"; path = "Fonts/let's go digital regular.ttf"; sourceTree = "<group>"; };
+		D4E6100C28035BAD00F562A9 /* RVS_MaskButton_TestHarness_TabBase_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_TestHarness_TabBase_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E60FFF280313CF00F562A9 /* RVS_MaskButton.framework in Frameworks */,
+				D4E6100B28033F6D00F562A9 /* RVS-BasicGCDTimer in Frameworks */,
 				D4E60FFD280313AA00F562A9 /* RVS-Generic-Swift-Toolbox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				D4B141B52803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift */,
-				D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift */,
+				D4E6100C28035BAD00F562A9 /* RVS_MaskButton_TestHarness_TabBase_ViewController.swift */,
 				D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift */,
+				D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,7 +179,15 @@
 				D46197F22802F80D00EC71A9 /* RVS_MaskButton_TestHarness.app */,
 				D46197F72802FAC900EC71A9 /* RVS_MaskButton.framework */,
 				D4A2770228030C6100CA3F59 /* .swiftlint.yml */,
+				D4E6100928033F6D00F562A9 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		D4E6100928033F6D00F562A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +205,9 @@
 			dependencies = (
 			);
 			name = RVS_MaskButton;
+			packageProductDependencies = (
+				D4E6100828033F2A00F562A9 /* RVS-BasicGCDTimer */,
+			);
 			productName = RVS_MaskButton;
 			productReference = D46197F72802FAC900EC71A9 /* RVS_MaskButton.framework */;
 			productType = "com.apple.product-type.framework";
@@ -214,6 +230,7 @@
 			name = RVS_MaskButton_TestHarness;
 			packageProductDependencies = (
 				D4E60FFC280313AA00F562A9 /* RVS-Generic-Swift-Toolbox */,
+				D4E6100A28033F6D00F562A9 /* RVS-BasicGCDTimer */,
 			);
 			productName = RVS_MaskButton_TestHarness;
 			productReference = D46197F22802F80D00EC71A9 /* RVS_MaskButton_TestHarness.app */;
@@ -248,6 +265,7 @@
 			mainGroup = D475EAB72802F5F80064A6AC;
 			packageReferences = (
 				D4E60FFB280313AA00F562A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */,
+				D4E6100728033F2A00F562A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */,
 			);
 			productRefGroup = D475EAB72802F5F80064A6AC;
 			projectDirPath = "";
@@ -308,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E6100D28035BAD00F562A9 /* RVS_MaskButton_TestHarness_TabBase_ViewController.swift in Sources */,
 				D4B141B62803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift in Sources */,
 				D46197F12802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift in Sources */,
 				D4B141B82803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift in Sources */,
@@ -639,6 +658,14 @@
 				minimumVersion = 1.6.7;
 			};
 		};
+		D4E6100728033F2A00F562A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RiftValleySoftware/RVS_BasicGCDTimer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -646,6 +673,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4E60FFB280313AA00F562A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */;
 			productName = "RVS-Generic-Swift-Toolbox";
+		};
+		D4E6100828033F2A00F562A9 /* RVS-BasicGCDTimer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4E6100728033F2A00F562A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */;
+			productName = "RVS-BasicGCDTimer";
+		};
+		D4E6100A28033F6D00F562A9 /* RVS-BasicGCDTimer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4E6100728033F2A00F562A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */;
+			productName = "RVS-BasicGCDTimer";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -22,6 +22,7 @@
 
 import UIKit
 import RVS_MaskButton
+import RVS_BasicGCDTimer
 
 /* ###################################################################################################################################### */
 // MARK: - The Tab 1 (Clock) View Controller Class -
@@ -29,72 +30,59 @@ import RVS_MaskButton
 /**
  This tab presents the control as a digital clock.
  */
-class RVS_MaskButton_TestHarness_Clock_ViewController: UIViewController {
+class RVS_MaskButton_TestHarness_Clock_ViewController: RVS_MaskButton_TestHarness_TabBase_ViewController {
     /* ################################################################################################################################## */
     // MARK: The Indexes of the Segmented Switch That Controls Presentation
     /* ################################################################################################################################## */
     /**
-     This tab presents the control as a digital clock.
+     These are the indexes for the font switch
      */
-    enum SegmentedSwitchOffsets: Int {
-        /// This renders the buttons as normal "Filled Content."
-        case normal
+    enum FontSegmentedSwitchOffsets: Int {
+        /// This sets the font to "Let's Go Digital."
+        case digital
         
-        /// This renders the buttons as reversed ("Content Cutout From Background")
-        case reversed
+        /// This sets the font to the basic system font.
+        case system
     }
+
+    /* ################################################################## */
+    /**
+     This is the font size we'll specify.
+     */
+    static let fontSize = CGFloat(60)
     
     /* ################################################################## */
     /**
-     This segmented switch allows us to switch between normal and reverse cutout mode.
+     We just use this, to keep from constantly re-pinging the control.
      */
-    @IBOutlet weak var normalReverseSegmentedSwitch: UISegmentedControl?
+    var lastTimeString = ""
 
     /* ################################################################## */
     /**
-     This switch selects the tint color to use for the gradient start
+     This calls the clock, around every second.
      */
-    @IBOutlet weak var startTintSelectorSegmentedSwitch: UISegmentedControl?
+    var timerInstance: RVS_BasicGCDTimer?
 
     /* ################################################################## */
     /**
-     This switch selects the tint color to use for the gradient end
+     This allows us to switch fonts for the clock.
      */
-    @IBOutlet weak var endTintSelectorSegmentedSwitch: UISegmentedControl?
-
+    @IBOutlet weak var fontSelectorSegmentedSwitch: UISegmentedControl!
+    
     /* ################################################################## */
     /**
      This is the main digital clock button.
      */
     @IBOutlet weak var digitalClockButton: RVS_MaskButton?
-}
-
-/* ###################################################################################################################################### */
-// MARK: Instance Methods
-/* ###################################################################################################################################### */
-extension RVS_MaskButton_TestHarness_Clock_ViewController {
+    
     /* ################################################################## */
     /**
-     This checks the `tintSelectorSegmentedSwitch`, and sets the appropriate color for the
-     control, based on its value.
+     This sets the various controls up to our initial default.
      */
-    func setSegmentedTintSelect(for inTintSlectorSegmentedSwitch: UISegmentedControl) {
-        // Set up the little tint squares for the tint selector control.
-        if let image = UIImage(systemName: "square.slash")?.withTintColor(.label) {
-            inTintSlectorSegmentedSwitch.setImage(image.withRenderingMode(.alwaysOriginal), forSegmentAt: 0)
-            inTintSlectorSegmentedSwitch.setEnabled(endTintSelectorSegmentedSwitch == inTintSlectorSegmentedSwitch, forSegmentAt: 0)
-        }
-        
-        if let color = UIColor(named: "AccentColor"),
-           let image = UIImage(systemName: "square.fill")?.withTintColor(color) {
-            inTintSlectorSegmentedSwitch.setImage(image.withRenderingMode(.alwaysOriginal), forSegmentAt: 1)
-        }
-        
-        for index in 2..<inTintSlectorSegmentedSwitch.numberOfSegments {
-            if let color = UIColor(named: "Tint-\(index)"),
-               let image = UIImage(systemName: "square.fill")?.withTintColor(color) {
-                inTintSlectorSegmentedSwitch.setImage(image.withRenderingMode(.alwaysOriginal), forSegmentAt: index)
-            }
+    override func overrideThisAndSetUpTheScreenAccordingToTheSettings() {
+        super.overrideThisAndSetUpTheScreenAccordingToTheSettings()
+        if let fontSelectorSegmentedSwitch = fontSelectorSegmentedSwitch {
+            fontSelectorSegmentedSwitchHit(fontSelectorSegmentedSwitch)
         }
     }
 }
@@ -109,21 +97,103 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let count = normalReverseSegmentedSwitch?.numberOfSegments {
+
+        if let count = fontSelectorSegmentedSwitch?.numberOfSegments {
             for index in (0..<count) {
-                if let title = normalReverseSegmentedSwitch?.titleForSegment(at: index) {
-                    normalReverseSegmentedSwitch?.setTitle(title.localizedVariant, forSegmentAt: index)
+                if let title = fontSelectorSegmentedSwitch?.titleForSegment(at: index) {
+                    fontSelectorSegmentedSwitch?.setTitle(title.localizedVariant, forSegmentAt: index)
                 }
             }
         }
+    }
+    
+    /* ################################################################## */
+    /**
+     Called just before the view appears. We use this to set the display to a standard starting point.
+     
+     - parameter inIsAnimated: True, if the appearance will be animated.
+     */
+    override func viewWillAppear(_ inIsAnimated: Bool) {
+        super.viewWillAppear(inIsAnimated)
         
-        if let startTintSelectorSegmentedSwitch = startTintSelectorSegmentedSwitch,
-           let endTintSelectorSegmentedSwitch = endTintSelectorSegmentedSwitch {
-            setSegmentedTintSelect(for: startTintSelectorSegmentedSwitch)
-            setSegmentedTintSelect(for: endTintSelectorSegmentedSwitch)
-            tintSegmentedSwitchHit(startTintSelectorSegmentedSwitch)
-            tintSegmentedSwitchHit(endTintSelectorSegmentedSwitch)
+        if let fontSelectorSegmentedSwitch = fontSelectorSegmentedSwitch {
+            fontSelectorSegmentedSwitch.selectedSegmentIndex = 0
         }
+        
+        overrideThisAndSetUpTheScreenAccordingToTheSettings()
+        
+        timerInstance = RVS_BasicGCDTimer(timeIntervalInSeconds: 1.0, delegate: self, leewayInMilliseconds: 100, onlyFireOnce: false, queue: DispatchQueue.main, isWallTime: true)
+
+        timerInstance?.isRunning = true
+        
+        if let timerInstance = timerInstance {
+            basicGCDTimerCallback(timerInstance)
+        }
+    }
+    
+    /* ################################################################## */
+    /**
+     Called just before the view disappears. We use this to kill the timer.
+     
+     - parameter inIsAnimated: True, if the appearance will be animated.
+     */
+    override func viewWillDisappear(_ inIsAnimated: Bool) {
+        super.viewWillDisappear(inIsAnimated)
+        timerInstance = nil
+    }
+    
+    /* ################################################################## */
+    /**
+     Called when the segmented switch, controlling the cutout method, is hit.
+     
+     - parameter inSegmentedSwitch: The switch instance.
+     */
+    override func normalReverseSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
+        digitalClockButton?.reversed = ReversedSegmentedSwitchOffsets.reversed.rawValue == inSegmentedSwitch.selectedSegmentIndex
+    }
+
+    /* ################################################################## */
+    /**
+     Called when the segmented switch, controlling the border, is hit.
+     
+     - parameter inSegmentedSwitch: The switch instance.
+     */
+    override func borderSelectionSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
+        digitalClockButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
+        digitalClockButton?.forceReDraw()
+    }
+
+    /* ################################################################## */
+    /**
+     Called when the segmented switch, controlling the start color, is hit.
+     
+     - parameter inSegmentedSwitch: The switch instance.
+     */
+    override func tintSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
+        let index = inSegmentedSwitch.selectedSegmentIndex
+        if let color = 1 == index ? view?.tintColor : UIColor(named: "Tint-\(index)") {
+            if startTintSelectorSegmentedSwitch == inSegmentedSwitch {
+                digitalClockButton?.gradientStartColor = color
+            } else {
+                gradientAngleSlider?.isEnabled = true
+                digitalClockButton?.gradientEndColor = color
+            }
+        } else {
+            gradientAngleSlider?.value = 0
+            gradientAngleSlider?.isEnabled = false
+            digitalClockButton?.gradientAngleInDegrees = 0
+            digitalClockButton?.gradientEndColor = nil
+        }
+    }
+    
+    /* ################################################################## */
+    /**
+     The gradient angle slider has changed.
+     
+     - parameter inSlider: The slider instance. The value will be the angle, in degrees.
+     */
+    override func gradientAngleSliderChanged(_ inSlider: UISlider) {
+        digitalClockButton?.gradientAngleInDegrees = CGFloat(inSlider.value)
     }
 }
 
@@ -133,28 +203,15 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
 extension RVS_MaskButton_TestHarness_Clock_ViewController {
     /* ################################################################## */
     /**
-     Called when the segmented switch, controlling the cutout method, is hit.
-     
+     This is called when the font switch changes value.
      - parameter inSegmentedSwitch: The switch instance.
      */
-    @IBAction func normalReverseSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
-        digitalClockButton?.reversed = SegmentedSwitchOffsets.reversed.rawValue == inSegmentedSwitch.selectedSegmentIndex
-    }
-    
-    /* ################################################################## */
-    /**
-     Called when the segmented switch, controlling the start color, is hit.
-     
-     - parameter inSegmentedSwitch: The switch instance.
-     */
-    @IBAction func tintSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
-        let index = inSegmentedSwitch.selectedSegmentIndex
-        if let color = 0 == index ? nil : 1 == index ? UIColor(named: "AccentColor") : UIColor(named: "Tint-\(index)") {
-            if startTintSelectorSegmentedSwitch == inSegmentedSwitch {
-                digitalClockButton?.gradientStartColor = color
-            } else {
-                digitalClockButton?.gradientEndColor = color
-            }
+    @IBAction func fontSelectorSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
+        if FontSegmentedSwitchOffsets.digital.rawValue == inSegmentedSwitch.selectedSegmentIndex,
+           let font = UIFont(name: "Let's Go Digital", size: Self.fontSize) {
+            digitalClockButton?.buttonFont = font
+        } else {
+            digitalClockButton?.buttonFont = UIFont.monospacedSystemFont(ofSize: Self.fontSize, weight: .bold)
         }
     }
 
@@ -165,5 +222,25 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
      - parameter inButton: The button instance.
      */
     @IBAction func digitalClockButtonHit(_ inButton: RVS_MaskButton) {
+        timerInstance?.isRunning = !(timerInstance?.isRunning ?? true)
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: RVS_BasicGCDTimerDelegate Conformance
+/* ###################################################################################################################################### */
+extension RVS_MaskButton_TestHarness_Clock_ViewController: RVS_BasicGCDTimerDelegate {
+    /* ################################################################## */
+    /**
+     */
+    func basicGCDTimerCallback(_ inTimer: RVS_BasicGCDTimer) {
+        let timeDisplayFormatter = DateFormatter()
+        timeDisplayFormatter.timeStyle = .medium
+        let timeString = timeDisplayFormatter.string(from: Date())
+        
+        if lastTimeString != timeString {
+            lastTimeString = timeString
+            digitalClockButton?.setTitle(timeString, for: .normal)
+        }
     }
 }

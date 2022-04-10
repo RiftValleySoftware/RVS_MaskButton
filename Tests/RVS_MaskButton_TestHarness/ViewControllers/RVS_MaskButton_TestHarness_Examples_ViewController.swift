@@ -28,7 +28,14 @@ import UIKit
 /**
  This tab presents the control in a few configurations.
  */
-class RVS_MaskButton_TestHarness_Examples_ViewController: UIViewController {
+class RVS_MaskButton_TestHarness_Examples_ViewController: RVS_MaskButton_TestHarness_TabBase_ViewController {
+    /* ################################################################## */
+    /**
+     This sets the various controls up to our initial default.
+     */
+    override func overrideThisAndSetUpTheScreenAccordingToTheSettings() {
+        super.overrideThisAndSetUpTheScreenAccordingToTheSettings()
+    }
 }
 
 /* ###################################################################################################################################### */
@@ -41,6 +48,16 @@ extension RVS_MaskButton_TestHarness_Examples_ViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    /* ################################################################## */
+    /**
+     Called just before the view appears. We use this to set the display to a standard starting point.
+     
+     - parameter inIsAnimated: True, if the appearance will be animated.
+     */
+    override func viewWillAppear(_ inIsAnimated: Bool) {
+        super.viewWillAppear(inIsAnimated)
+        overrideThisAndSetUpTheScreenAccordingToTheSettings()
     }
 }

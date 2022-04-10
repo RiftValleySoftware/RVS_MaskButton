@@ -20,8 +20,14 @@
  The Great Rift Valley Software Company: https://riftvalleysoftware.com
 */
 
-"SLUG-TAB-ITEM-0"       =   "Examples";
-"SLUG-TAB-ITEM-1"       =   "Clock";
+"SLUG-TAB-ITEM-0"       =   "Clock";
+"SLUG-TAB-ITEM-1"       =   "Examples";
 
 "SLUG-SEG-NORMAL"       =   "Normal";
 "SLUG-SEG-REVERSED"     =   "Reversed";
+
+"SLUG-BORDER"           =   "Border";
+"SLUG-NO-BORDER"        =   "No Border";
+
+"SLUG-FONT-0"           =   "Digital";
+"SLUG-FONT-1"           =   "System";

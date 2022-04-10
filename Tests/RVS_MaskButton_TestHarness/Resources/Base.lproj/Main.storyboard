@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--SLUG-TAB-ITEM-1-->
+        <!--SLUG-TAB-ITEM-0-->
         <scene sceneID="LuC-jf-gWJ">
             <objects>
                 <viewController id="Iv5-co-QgX" customClass="RVS_MaskButton_TestHarness_Clock_ViewController" customModule="RVS_MaskButton_TestHarness" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,13 +30,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CenterImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLO-fc-taS">
                                 <rect key="frame" x="83" y="324" width="248" height="248"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="N1v-Lm-2qq">
-                                <rect key="frame" x="20" y="44" width="374" height="199.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N1v-Lm-2qq">
+                                <rect key="frame" x="20" y="44" width="374" height="335"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ill-TM-Ukm">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="SCp-aN-jgG"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="x1W-EZ-Vm3"/>
                                         </constraints>
                                         <segments>
                                             <segment title="SLUG-SEG-NORMAL"/>
@@ -47,10 +48,25 @@
                                             <action selector="normalReverseSegmentedSwitchHit:" destination="Iv5-co-QgX" eventType="valueChanged" id="fyi-gt-dft"/>
                                         </connections>
                                     </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bm1-Nf-FJx">
+                                        <rect key="frame" x="0.0" y="38" width="374" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="AWL-Kn-Gfv"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="SLUG-BORDER"/>
+                                            <segment title="SLUG-NO-BORDER"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="borderSelectionSegmentedSwitchHit:" destination="Iv5-co-QgX" eventType="valueChanged" id="6gn-jt-pSB"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="OeV-U7-Pf1">
-                                        <rect key="frame" x="0.0" y="30" width="374" height="31"/>
+                                        <rect key="frame" x="0.0" y="76" width="374" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="lFp-D8-rSe"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="x8p-9F-pW7"/>
                                         </constraints>
                                         <segments>
                                             <segment title="" enabled="NO">
@@ -78,14 +94,16 @@
                                                 <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                             </segment>
                                         </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
                                         <connections>
                                             <action selector="tintSegmentedSwitchHit:" destination="Iv5-co-QgX" eventType="valueChanged" id="5dD-gA-MVF"/>
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jxc-vb-HDB">
-                                        <rect key="frame" x="0.0" y="60" width="374" height="31"/>
+                                        <rect key="frame" x="0.0" y="114" width="374" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="cs4-ZG-OwR"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="nOp-aE-q2e"/>
                                         </constraints>
                                         <segments>
                                             <segment title="">
@@ -113,23 +131,74 @@
                                                 <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                             </segment>
                                         </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
                                         <connections>
                                             <action selector="tintSegmentedSwitchHit:" destination="Iv5-co-QgX" eventType="valueChanged" id="MJV-UB-TR3"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uS-CF-shN" customClass="RVS_MaskButton" customModule="RVS_MaskButton">
-                                        <rect key="frame" x="0.0" y="90" width="374" height="109.5"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-180" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="M9b-S5-g7T">
+                                        <rect key="frame" x="-2" y="152" width="378" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="vsQ-Vk-EKU"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" systemColor="labelColor"/>
+                                        <color key="maximumTrackTintColor" systemColor="labelColor"/>
+                                        <color key="thumbTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="gradientAngleSliderChanged:" destination="Iv5-co-QgX" eventType="valueChanged" id="oBU-gD-10Z"/>
+                                        </connections>
+                                    </slider>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pfF-sH-kEo">
+                                        <rect key="frame" x="0.0" y="197" width="374" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="QBQ-dB-RPa"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="SLUG-FONT-0"/>
+                                            <segment title="SLUG-FONT-1"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="fontSelectorSegmentedSwitchHit:" destination="Iv5-co-QgX" eventType="valueChanged" id="zAd-uM-RBX"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uS-CF-shN" customClass="RVS_MaskButton" customModule="RVS_MaskButton">
+                                        <rect key="frame" x="0.0" y="235" width="374" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="gem-1Y-gFF"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="LetsgoDigital-Regular" family="Let's go Digital" pointSize="100"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="digitalClockButtonHit:" destination="Iv5-co-QgX" eventType="touchUpInside" id="MBq-5K-eZZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="pfF-sH-kEo" secondAttribute="trailing" id="4So-ti-cZc"/>
+                                    <constraint firstAttribute="trailing" secondItem="8uS-CF-shN" secondAttribute="trailing" id="642-N1-xSA"/>
+                                    <constraint firstItem="Jxc-vb-HDB" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="AeG-wi-oIG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ill-TM-Ukm" secondAttribute="trailing" id="G5O-eE-BJV"/>
+                                    <constraint firstItem="M9b-S5-g7T" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="GHb-X9-gVH"/>
                                     <constraint firstAttribute="trailing" secondItem="Ill-TM-Ukm" secondAttribute="trailing" id="KaZ-7A-WyK"/>
+                                    <constraint firstItem="pfF-sH-kEo" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="MgD-oE-udh"/>
+                                    <constraint firstItem="8uS-CF-shN" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="U3E-Iu-ypr"/>
+                                    <constraint firstItem="OeV-U7-Pf1" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="URv-cG-lMZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="bm1-Nf-FJx" secondAttribute="trailing" id="YGh-x7-yQV"/>
+                                    <constraint firstItem="Ill-TM-Ukm" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="ceb-6p-LIc"/>
+                                    <constraint firstItem="bm1-Nf-FJx" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="cnn-Ao-SzG"/>
+                                    <constraint firstAttribute="trailing" secondItem="OeV-U7-Pf1" secondAttribute="trailing" id="gtj-ei-NPA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jxc-vb-HDB" secondAttribute="trailing" id="iPU-Ei-DoU"/>
                                     <constraint firstItem="Ill-TM-Ukm" firstAttribute="leading" secondItem="N1v-Lm-2qq" secondAttribute="leading" id="oKI-VL-BvM"/>
+                                    <constraint firstAttribute="trailing" secondItem="M9b-S5-g7T" secondAttribute="trailing" id="tkZ-p2-QeP"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -151,19 +220,22 @@
                             <constraint firstItem="rLO-fc-taS" firstAttribute="height" relation="lessThanOrEqual" secondItem="Ryk-Np-U9P" secondAttribute="height" multiplier="0.6" id="qe8-x6-b9u"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="SLUG-TAB-ITEM-1" image="clock" catalog="system" id="Mwb-VB-9Au"/>
+                    <tabBarItem key="tabBarItem" title="SLUG-TAB-ITEM-0" image="clock" catalog="system" id="Mwb-VB-9Au"/>
                     <connections>
+                        <outlet property="borderSelectionSegmentedSwitch" destination="bm1-Nf-FJx" id="Vx5-Pd-yiY"/>
                         <outlet property="digitalClockButton" destination="8uS-CF-shN" id="wsM-tm-V0r"/>
                         <outlet property="endTintSelectorSegmentedSwitch" destination="Jxc-vb-HDB" id="puk-fa-Xdw"/>
+                        <outlet property="fontSelectorSegmentedSwitch" destination="pfF-sH-kEo" id="hEh-us-mUC"/>
+                        <outlet property="gradientAngleSlider" destination="M9b-S5-g7T" id="ajm-h8-kq4"/>
                         <outlet property="normalReverseSegmentedSwitch" destination="Ill-TM-Ukm" id="4eo-Us-45U"/>
                         <outlet property="startTintSelectorSegmentedSwitch" destination="OeV-U7-Pf1" id="S4s-ab-926"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uub-XB-FVD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1470" y="-480"/>
+            <point key="canvasLocation" x="370" y="-481"/>
         </scene>
-        <!--SLUG-TAB-ITEM-0-->
+        <!--SLUG-TAB-ITEM-1-->
         <scene sceneID="nqk-co-IMv">
             <objects>
                 <viewController id="XeL-tn-FUU" customClass="RVS_MaskButton_TestHarness_Examples_ViewController" customModule="RVS_MaskButton_TestHarness" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,6 +249,141 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CenterImage" translatesAutoresizingMaskIntoConstraints="NO" id="Yfh-Aw-Kgj">
                                 <rect key="frame" x="83" y="324" width="248" height="248"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Gm-Nh-AIB">
+                                <rect key="frame" x="20" y="44" width="374" height="189"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kX4-b5-hdL">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="27M-3L-JHL"/>
+                                            <constraint firstAttribute="height" constant="30" id="2hc-Lf-ise"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="SLUG-SEG-NORMAL"/>
+                                            <segment title="SLUG-SEG-REVERSED"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="normalReverseSegmentedSwitchHit:" destination="XeL-tn-FUU" eventType="valueChanged" id="t5I-Mt-PRZ"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M4A-lu-I2t">
+                                        <rect key="frame" x="0.0" y="38" width="374" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0h7-s5-sI3"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="SLUG-BORDER"/>
+                                            <segment title="SLUG-NO-BORDER"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="borderSelectionSegmentedSwitchHit:" destination="XeL-tn-FUU" eventType="valueChanged" id="KhW-va-Uwm"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="qzT-kT-zhq">
+                                        <rect key="frame" x="0.0" y="76" width="374" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="mdh-cv-BNY"/>
+                                            <constraint firstAttribute="height" constant="30" id="r5t-x3-h7k"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="" enabled="NO">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="tintSegmentedSwitchHit:" destination="XeL-tn-FUU" eventType="valueChanged" id="0yP-b4-gIa"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gif-kp-agX">
+                                        <rect key="frame" x="0.0" y="114" width="374" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="HNI-Qy-0uy"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="VJD-3z-LVj"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                            <segment title="">
+                                                <imageReference key="image" image="square.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            </segment>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="tintSegmentedSwitchHit:" destination="XeL-tn-FUU" eventType="valueChanged" id="j5W-I9-Eed"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-180" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="dCn-8O-joe">
+                                        <rect key="frame" x="-2" y="152" width="378" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="5Zv-7L-Rub"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" systemColor="labelColor"/>
+                                        <color key="maximumTrackTintColor" systemColor="labelColor"/>
+                                        <color key="thumbTintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="gradientAngleSliderChanged:" destination="XeL-tn-FUU" eventType="valueChanged" id="YO4-5e-GXY"/>
+                                            <action selector="gradientAngleSliderChanged:" destination="Iv5-co-QgX" eventType="valueChanged" id="b5g-ha-Dd4"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="M4A-lu-I2t" firstAttribute="leading" secondItem="9Gm-Nh-AIB" secondAttribute="leading" id="1zV-g1-EfP"/>
+                                    <constraint firstAttribute="trailing" secondItem="qzT-kT-zhq" secondAttribute="trailing" id="53f-q9-SrX"/>
+                                    <constraint firstItem="dCn-8O-joe" firstAttribute="leading" secondItem="9Gm-Nh-AIB" secondAttribute="leading" id="7w7-lD-aws"/>
+                                    <constraint firstAttribute="trailing" secondItem="M4A-lu-I2t" secondAttribute="trailing" id="8PE-Wm-0PS"/>
+                                    <constraint firstItem="qzT-kT-zhq" firstAttribute="leading" secondItem="9Gm-Nh-AIB" secondAttribute="leading" id="UN2-Qk-Bqr"/>
+                                    <constraint firstAttribute="trailing" secondItem="dCn-8O-joe" secondAttribute="trailing" id="bi6-9T-5wL"/>
+                                    <constraint firstAttribute="trailing" secondItem="kX4-b5-hdL" secondAttribute="trailing" id="eNj-kD-EqM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gif-kp-agX" secondAttribute="trailing" id="j36-AV-ovv"/>
+                                    <constraint firstItem="Gif-kp-agX" firstAttribute="leading" secondItem="9Gm-Nh-AIB" secondAttribute="leading" id="j4N-41-P4t"/>
+                                    <constraint firstItem="kX4-b5-hdL" firstAttribute="leading" secondItem="9Gm-Nh-AIB" secondAttribute="leading" id="rza-RM-QYa"/>
+                                    <constraint firstAttribute="trailing" secondItem="kX4-b5-hdL" secondAttribute="trailing" id="woi-r2-fLy"/>
+                                    <constraint firstItem="kX4-b5-hdL" firstAttribute="leading" secondItem="9Gm-Nh-AIB" secondAttribute="leading" id="zVh-OW-qbS"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v1H-wa-vy5"/>
                         <color key="tintColor" name="AccentColor"/>
@@ -184,19 +391,30 @@
                             <constraint firstAttribute="bottom" secondItem="2nl-Ri-rPC" secondAttribute="bottom" id="8io-Gq-z2q"/>
                             <constraint firstItem="2nl-Ri-rPC" firstAttribute="leading" secondItem="JD6-5S-fqx" secondAttribute="leading" id="KCg-no-VOG"/>
                             <constraint firstAttribute="trailing" secondItem="2nl-Ri-rPC" secondAttribute="trailing" id="MZh-TZ-5DN"/>
+                            <constraint firstItem="v1H-wa-vy5" firstAttribute="trailing" secondItem="9Gm-Nh-AIB" secondAttribute="trailing" constant="20" id="V8d-1s-aMX"/>
+                            <constraint firstItem="v1H-wa-vy5" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Gm-Nh-AIB" secondAttribute="bottom" id="YJE-Wc-x5u"/>
                             <constraint firstItem="2nl-Ri-rPC" firstAttribute="top" secondItem="JD6-5S-fqx" secondAttribute="top" id="dTX-dE-zUi"/>
                             <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="width" secondItem="Yfh-Aw-Kgj" secondAttribute="height" multiplier="1:1" id="jDl-Fa-Skh"/>
                             <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="centerX" secondItem="JD6-5S-fqx" secondAttribute="centerX" id="kC2-7H-aLX"/>
                             <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="width" relation="lessThanOrEqual" secondItem="JD6-5S-fqx" secondAttribute="width" multiplier="0.6" id="lK7-uD-pjW"/>
+                            <constraint firstItem="9Gm-Nh-AIB" firstAttribute="top" secondItem="v1H-wa-vy5" secondAttribute="top" id="mo9-Ck-nGX"/>
                             <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="height" relation="lessThanOrEqual" secondItem="JD6-5S-fqx" secondAttribute="height" multiplier="0.6" id="tAy-hc-JVD"/>
+                            <constraint firstItem="9Gm-Nh-AIB" firstAttribute="leading" secondItem="v1H-wa-vy5" secondAttribute="leading" constant="20" id="y79-Bx-OAO"/>
                             <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="centerY" secondItem="JD6-5S-fqx" secondAttribute="centerY" id="yz8-5h-QVr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="SLUG-TAB-ITEM-0" image="rectangle.grid.1x2" catalog="system" id="v1D-sQ-Ovc"/>
+                    <tabBarItem key="tabBarItem" title="SLUG-TAB-ITEM-1" image="rectangle.grid.1x2" catalog="system" id="v1D-sQ-Ovc"/>
+                    <connections>
+                        <outlet property="borderSelectionSegmentedSwitch" destination="M4A-lu-I2t" id="oN9-Qn-b7p"/>
+                        <outlet property="endTintSelectorSegmentedSwitch" destination="Gif-kp-agX" id="JH7-8Q-3Ux"/>
+                        <outlet property="gradientAngleSlider" destination="dCn-8O-joe" id="yt4-jx-KsR"/>
+                        <outlet property="normalReverseSegmentedSwitch" destination="kX4-b5-hdL" id="S12-Gf-ZCQ"/>
+                        <outlet property="startTintSelectorSegmentedSwitch" destination="qzT-kT-zhq" id="biG-Vt-BoU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovu-CP-HIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="-480"/>
+            <point key="canvasLocation" x="1309" y="-481"/>
         </scene>
         <!--Mask Button Test Harness Tab Bar Controller-->
         <scene sceneID="4Po-S0-ILt">
@@ -213,18 +431,18 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="XeL-tn-FUU" kind="relationship" relationship="viewControllers" id="48g-8Z-Qe5"/>
                         <segue destination="Iv5-co-QgX" kind="relationship" relationship="viewControllers" id="dX9-lY-tUS"/>
+                        <segue destination="XeL-tn-FUU" kind="relationship" relationship="viewControllers" id="48g-8Z-Qe5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="191-0c-bmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="832" y="-1207"/>
+            <point key="canvasLocation" x="830" y="-1209"/>
         </scene>
     </scenes>
     <designables>
         <designable name="8uS-CF-shN">
-            <size key="intrinsicContentSize" width="306" height="113"/>
+            <size key="intrinsicContentSize" width="30" height="113"/>
         </designable>
     </designables>
     <resources>
@@ -234,7 +452,7 @@
         <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>
         <image name="square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
-            <color red="1" green="0.81800001859664917" blue="0.45600000023841858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18276779601275328" green="0.53733990363315365" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

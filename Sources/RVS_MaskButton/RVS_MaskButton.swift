@@ -132,12 +132,13 @@ fileprivate extension CGPoint {
  This allows you to specify a border, which will be included in the gradient fill.
  If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
  The border will be filled with the gradient, as well as the text or image.
- This also causes the gradient to be wider.
- Without the border, the gradient is restricted to the text/image frame.
  
  The button can have either text or image (not both).
  Text is given priority. If text is provided, then the images are ignored (and not displayed).
  Images must be rendererable as template.
+ 
+ This button is quite simple, and "old-fashioned," compared to the current buttons.
+ It doesn't have support for all the scheming and styling that UIButton has, and should be treated as "Default" style.
  */
 @IBDesignable
 open class RVS_MaskButton: UIButton {
@@ -153,6 +154,12 @@ open class RVS_MaskButton: UIButton {
     /* ################################################################################################################################## */
     // MARK: Private Property
     /* ################################################################################################################################## */
+    /* ################################################################## */
+    /**
+     This is how many display units to add to either side of the label, to ensure padding.
+     */
+    private static let _horizontalLabelPaddingInDisplayUnits = CGFloat(10)
+    
     /* ################################################################## */
     /**
      This caches the original alpha.
@@ -238,7 +245,25 @@ extension RVS_MaskButton {
     /**
      This returns the mask layer, rendering it, if necessary.
      */
-    var maskLayer: CALayer? { makeOutlineLayer() }
+    var maskLayer: CALayer? { makeMaskLayer() }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Public Computed Properties
+/* ###################################################################################################################################### */
+public extension RVS_MaskButton {
+    /* ################################################################## */
+    /**
+     This allows you to set the font of the button. This is not inspectable, and must be set programmatically.
+     */
+    var buttonFont: UIFont? {
+        get { titleLabel?.font }
+        set {
+            titleLabel?.font = newValue
+            _maskLayer = nil
+            setNeedsLayout()
+        }
+    }
 }
 
 /* ###################################################################################################################################### */
@@ -271,7 +296,7 @@ extension RVS_MaskButton {
     /**
      This uses our text or image to generate a mask layer.
      */
-    func makeOutlineLayer() -> CALayer? {
+    func makeMaskLayer() -> CALayer? {
         guard nil == _maskLayer else { return _maskLayer }
         
         // These colors map to a transparency mask. White is opaque. Black is transparent.
@@ -282,12 +307,13 @@ extension RVS_MaskButton {
         // If so, we then determine the appropriate font size.
         if let text = title(for: state),
            var dynFont = titleLabel?.font {
-            let minimumFontSizeInPoints = (dynFont.pointSize * 0.5)
-            let scalingStep = 0.025
+            let minimumFontSizeInPoints = (dynFont.pointSize * 0.25)
+            let scalingStep = 0.0125
             while dynFont.pointSize >= minimumFontSizeInPoints {
                 let calcString = NSAttributedString(string: text, attributes: [.font: dynFont])
                 let cropRect = calcString.boundingRect(with: CGSize.init(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
-                if bounds.size.width >= cropRect.size.width {
+                // We add the padding for our calculations. We take the border into account.
+                if bounds.size.width >= (cropRect.size.width + ((Self._horizontalLabelPaddingInDisplayUnits + layer.borderWidth) * 2)) {
                     break
                 }
                 guard let tempDynFont = UIFont(name: dynFont.fontName, size: dynFont.pointSize - (dynFont.pointSize * scalingStep)) else { break }
@@ -306,7 +332,7 @@ extension RVS_MaskButton {
         
         if let text = title(for: state),
            let titleLabel = titleLabel,
-           let font = titleLabel.font {
+           let font = buttonFont {
             let textLayer = CATextLayer()
             textLayer.frame = titleLabel.frame
             textLayer.rasterizationScale = UIScreen.main.scale
@@ -344,6 +370,21 @@ extension RVS_MaskButton {
         }
         
         return _maskLayer
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Public Instance Methods
+/* ###################################################################################################################################### */
+extension RVS_MaskButton {
+    /* ################################################################## */
+    /**
+     This is used to flush the caches, and redraw the button.
+     */
+    public func forceReDraw() {
+        _gradientLayer = nil
+        _maskLayer = nil
+        setNeedsLayout()
     }
 }
 
@@ -426,6 +467,7 @@ extension RVS_MaskButton {
     override public func setTitle(_ inTitle: String?, for inState: UIControl.State) {
         _maskLayer = nil
         super.setTitle(inTitle, for: inState)
+        setNeedsLayout()
     }
     
     /* ################################################################## */
@@ -438,5 +480,6 @@ extension RVS_MaskButton {
     override public func setImage(_ inImage: UIImage?, for inState: UIControl.State) {
         _maskLayer = nil
         super.setImage(inImage, for: inState)
+        setNeedsLayout()
     }
 }

@@ -73,12 +73,19 @@
 
                 </div>
               </div>
-            <p>This class can be displayed with either the text filled with a gradient, or the background filled, and the text &ldquo;cut out&rdquo; of it.
+            <p>This class can be displayed with either the text (or image) filled with a gradient, or the background filled, and the text (or image) &ldquo;cut out&rdquo; of it.
 All behavior is the same as any other UIButton.</p>
 
 <p>This allows you to specify a border, which will be included in the gradient fill.
 If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
 The border will be filled with the gradient, as well as the text or image.</p>
+
+<p>The button can have either text or image (not both).
+Text is given priority. If text is provided, then the images are ignored (and not displayed).
+Images must be rendererable as template.</p>
+
+<p>This button is quite simple, and &ldquo;old-fashioned,&rdquo; compared to the current buttons.
+It doesn&rsquo;t have support for all the scheming and styling that UIButton has, and should be treated as &ldquo;Default&rdquo; style.</p>
 
           </div>
         </section>
@@ -86,6 +93,15 @@ The border will be filled with the gradient, as well as the text or image.</p>
         <section class="section">
           <div class="section-content">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20IB%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Public IB Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20IB%20Properties"></a>
+                  <h3 class="section-name"><span>Public IB Properties</span>
+</h3>
+                </div>
+              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -100,7 +116,11 @@ The border will be filled with the gradient, as well as the text or image.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The starting color for the gradient.</p>
+                        <p>The starting color for the gradient.
+If not provide, the view backgroundColor is used.
+If that is not provided, then the view tintColor is used.
+If that is not provided, the AccentColor is used.
+If that is not provided, the class will not work.</p>
 
                       </div>
                       <div class="declaration">
@@ -128,7 +148,7 @@ The border will be filled with the gradient, as well as the text or image.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ending color.</p>
+                        <p>The ending color. If not provided, then the starting color is used.</p>
 
                       </div>
                       <div class="declaration">
@@ -156,7 +176,8 @@ The border will be filled with the gradient, as well as the text or image.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The angle of the gradient. 0 (default) is top-to-bottom.</p>
+                        <p>The angle of the gradient, in degrees. 0 (default) is top-to-bottom.
+Negative is counter-clockwise, and positive is clockwise.</p>
 
                       </div>
                       <div class="declaration">
@@ -203,11 +224,11 @@ The border will be filled with the gradient, as well as the text or image.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Computed%20Properties"></a>
-                <a name="//apple_ref/swift/Section/Computed Properties" class="dashAnchor"></a>
+                <a name="/Public%20Computed%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Public Computed Properties" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Computed%20Properties"></a>
-                  <h3 class="section-name"><span>Computed Properties</span>
+                  <a class="section-name-link" href="#/Public%20Computed%20Properties"></a>
+                  <h3 class="section-name"><span>Public Computed Properties</span>
 </h3>
                 </div>
               </div>
@@ -215,9 +236,9 @@ The border will be filled with the gradient, as well as the text or image.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14RVS_MaskButtonAAC8textFontSo6UIFontCSgvp"></a>
-                    <a name="//apple_ref/swift/Property/textFont" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14RVS_MaskButtonAAC8textFontSo6UIFontCSgvp">textFont</a>
+                    <a name="/s:14RVS_MaskButtonAAC10buttonFontSo6UIFontCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/buttonFont" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RVS_MaskButtonAAC10buttonFontSo6UIFontCSgvp">buttonFont</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -225,14 +246,14 @@ The border will be filled with the gradient, as well as the text or image.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This allows us to set and get the font used for the text button.</p>
+                        <p>This allows you to set the font of the button. This is not inspectable, and must be set programmatically.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">buttonFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -243,11 +264,51 @@ The border will be filled with the gradient, as well as the text or image.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Base%20Class%20Overrides"></a>
-                <a name="//apple_ref/swift/Section/Base Class Overrides" class="dashAnchor"></a>
+                <a name="/Public%20Instance%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Public Instance Methods" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Base%20Class%20Overrides"></a>
-                  <h3 class="section-name"><span>Base Class Overrides</span>
+                  <a class="section-name-link" href="#/Public%20Instance%20Methods"></a>
+                  <h3 class="section-name"><span>Public Instance Methods</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14RVS_MaskButtonAAC11forceReDrawyyF"></a>
+                    <a name="//apple_ref/swift/Method/forceReDraw()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RVS_MaskButtonAAC11forceReDrawyyF">forceReDraw()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is used to flush the caches, and redraw the button.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forceReDraw</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Base%20Class%20Overrides"></a>
+                <a name="//apple_ref/swift/Section/Public Base Class Overrides" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Base%20Class%20Overrides"></a>
+                  <h3 class="section-name"><span>Public Base Class Overrides</span>
 </h3>
                 </div>
               </div>
@@ -265,7 +326,7 @@ The border will be filled with the gradient, as well as the text or image.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>We call this, when it&rsquo;s time to layout the control.
+                        <p>We call this, when it&rsquo;s time to lay out the control.
 We subvert the standard rendering, and replace it with our own rendering.
 Some of this comes from <a href="https://stackoverflow.com/questions/42238603/reverse-a-calayer-mask/42238699#42238699">this SO answer</a></p>
 
