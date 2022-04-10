@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D46197EB2802F7F200EC71A9 /* RVS_MaskButton_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46197DF2802F7F200EC71A9 /* RVS_MaskButton_AppDelegate.swift */; };
 		D46197EC2802F7F200EC71A9 /* RVS_MaskButton_SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46197E02802F7F200EC71A9 /* RVS_MaskButton_SceneDelegate.swift */; };
 		D46197ED2802F7F200EC71A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D46197E22802F7F200EC71A9 /* Assets.xcassets */; };
 		D46197EE2802F7F200EC71A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46197E32802F7F200EC71A9 /* LaunchScreen.storyboard */; };
 		D46197EF2802F7F200EC71A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46197E52802F7F200EC71A9 /* Main.storyboard */; };
-		D46197F12802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Tab0_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Tab0_ViewController.swift */; };
+		D46197F12802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift */; };
 		D46197F62802F8F000EC71A9 /* RVS_MaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46197F52802F8F000EC71A9 /* RVS_MaskButton.swift */; };
 		D4B141B62803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B141B52803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift */; };
-		D4B141B82803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Tab1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Tab1_ViewController.swift */; };
+		D4B141B82803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift */; };
 		D4B141BB2803031900E9C7E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4B141B92803031900E9C7E2 /* Localizable.strings */; };
 		D4E60FFD280313AA00F562A9 /* RVS-Generic-Swift-Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = D4E60FFC280313AA00F562A9 /* RVS-Generic-Swift-Toolbox */; };
 		D4E60FFF280313CF00F562A9 /* RVS_MaskButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46197F72802FAC900EC71A9 /* RVS_MaskButton.framework */; platformFilter = ios; };
 		D4E61000280313CF00F562A9 /* RVS_MaskButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D46197F72802FAC900EC71A9 /* RVS_MaskButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4E610062803202600F562A9 /* let's go digital regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E610052803202600F562A9 /* let's go digital regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,21 +54,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D46197DF2802F7F200EC71A9 /* RVS_MaskButton_AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_AppDelegate.swift; sourceTree = "<group>"; };
 		D46197E02802F7F200EC71A9 /* RVS_MaskButton_SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_SceneDelegate.swift; sourceTree = "<group>"; };
 		D46197E22802F7F200EC71A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D46197E42802F7F200EC71A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D46197E62802F7F200EC71A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D46197E82802F7F200EC71A9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Tab0_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_TestHarness_Tab0_ViewController.swift; sourceTree = "<group>"; };
+		D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_TestHarness_Examples_ViewController.swift; sourceTree = "<group>"; };
 		D46197F22802F80D00EC71A9 /* RVS_MaskButton_TestHarness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RVS_MaskButton_TestHarness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46197F52802F8F000EC71A9 /* RVS_MaskButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton.swift; sourceTree = "<group>"; };
 		D46197F72802FAC900EC71A9 /* RVS_MaskButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RVS_MaskButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46197F92802FAD800EC71A9 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		D4A2770228030C6100CA3F59 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D4B141B52803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_TestHarness_TabBarController.swift; sourceTree = "<group>"; };
-		D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Tab1_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_TestHarness_Tab1_ViewController.swift; sourceTree = "<group>"; };
+		D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_MaskButton_TestHarness_Clock_ViewController.swift; sourceTree = "<group>"; };
 		D4B141BA2803031900E9C7E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4E610052803202600F562A9 /* let's go digital regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "let's go digital regular.ttf"; path = "Fonts/let's go digital regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,6 @@
 		D46197DE2802F7F200EC71A9 /* MainApplication */ = {
 			isa = PBXGroup;
 			children = (
-				D46197DF2802F7F200EC71A9 /* RVS_MaskButton_AppDelegate.swift */,
 				D46197E02802F7F200EC71A9 /* RVS_MaskButton_SceneDelegate.swift */,
 			);
 			path = MainApplication;
@@ -115,6 +114,7 @@
 		D46197E12802F7F200EC71A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4E610052803202600F562A9 /* let's go digital regular.ttf */,
 				D4B141B92803031900E9C7E2 /* Localizable.strings */,
 				D46197E52802F7F200EC71A9 /* Main.storyboard */,
 				D46197E32802F7F200EC71A9 /* LaunchScreen.storyboard */,
@@ -135,8 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				D4B141B52803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift */,
-				D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Tab0_ViewController.swift */,
-				D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Tab1_ViewController.swift */,
+				D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift */,
+				D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -266,6 +266,7 @@
 			files = (
 				D46197EF2802F7F200EC71A9 /* Main.storyboard in Resources */,
 				D4B141BB2803031900E9C7E2 /* Localizable.strings in Resources */,
+				D4E610062803202600F562A9 /* let's go digital regular.ttf in Resources */,
 				D46197ED2802F7F200EC71A9 /* Assets.xcassets in Resources */,
 				D46197EE2802F7F200EC71A9 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -308,9 +309,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B141B62803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift in Sources */,
-				D46197F12802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Tab0_ViewController.swift in Sources */,
-				D46197EB2802F7F200EC71A9 /* RVS_MaskButton_AppDelegate.swift in Sources */,
-				D4B141B82803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Tab1_ViewController.swift in Sources */,
+				D46197F12802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Examples_ViewController.swift in Sources */,
+				D4B141B82803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift in Sources */,
 				D46197EC2802F7F200EC71A9 /* RVS_MaskButton_SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

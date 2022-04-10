@@ -1,5 +1,25 @@
-/*
-Copyright 2020-2022, Little Green Viper Software Development LLC
+/**
+ © Copyright 2022, The Great Rift Valley Software Company
+
+ LICENSE:
+
+ MIT License
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+ modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+ The Great Rift Valley Software Company: https://riftvalleysoftware.com
+ 
+ Version 1.0.0
 */
 
 import UIKit
@@ -205,12 +225,9 @@ open class RVS_MaskButton: UIButton {
 }
 
 /* ###################################################################################################################################### */
-// MARK: Computed Properties
+// MARK: Internal Computed Properties
 /* ###################################################################################################################################### */
 extension RVS_MaskButton {
-    /* ################################################################################################################################## */
-    // MARK: Internal Computed Properties
-    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      This returns the background gradient layer, rendering it, if necessary.
@@ -222,23 +239,6 @@ extension RVS_MaskButton {
      This returns the mask layer, rendering it, if necessary.
      */
     var maskLayer: CALayer? { makeOutlineLayer() }
-
-    /* ################################################################################################################################## */
-    // MARK: Public Computed Properties
-    /* ################################################################################################################################## */
-    /* ################################################################## */
-    /**
-     This allows us to set and get the font used for the text button.
-     **NOTE:** *This needs to be set programmatically, as Apple blocks access to an inspectable font property.*
-     */
-    public var textFont: UIFont? {
-        get { titleLabel?.font }
-        set {
-            titleLabel?.font = newValue
-            _maskLayer = nil
-            setNeedsLayout()
-        }
-    }
 }
 
 /* ###################################################################################################################################### */

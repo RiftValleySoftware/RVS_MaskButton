@@ -16,6 +16,12 @@
       <FileRef
          location = "group:CODEOWNERS">
       </FileRef>
+      <FileRef
+         location = "group:LICENSE">
+      </FileRef>
+      <FileRef
+         location = "group:Package.swift">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:RVS_MaskButton.xcodeproj">

@@ -23,41 +23,24 @@
 import UIKit
 
 /* ###################################################################################################################################### */
-// MARK: - Main App Delegate Class -
+// MARK: - The Tab 0 (Examples) View Controller Class -
 /* ###################################################################################################################################### */
 /**
- This is a simple, almost empty application and scene delegate class.
+ This tab presents the control in a few configurations.
  */
-@main
-class RVS_MaskButton_SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    /* ################################################################## */
-    /**
-     The required window property.
-     */
-    var window: UIWindow?
+class RVS_MaskButton_TestHarness_Examples_ViewController: UIViewController {
 }
 
 /* ###################################################################################################################################### */
-// MARK: UIApplicationDelegate Conformance
+// MARK: Base Class Overrides
 /* ###################################################################################################################################### */
-extension RVS_MaskButton_SceneDelegate: UIApplicationDelegate {
+extension RVS_MaskButton_TestHarness_Examples_ViewController {
     /* ################################################################## */
     /**
-     Called when the app has completed launching.
-     - parameters: All ignored
-     - returns: True, always.
+     Called when the view hierarchy has been initialized. We use this to set the control states, and apply localization.
      */
-    func application(_: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool { true }
-
-    /* ################################################################## */
-    /**
-     Called when a new scene session has been initiated.
-     - parameter inApplication: The application instance (ignored)
-     - parameter configurationForConnecting: The scene connection configuration (for determining role).
-     - parameter options: Any options (ignored)
-     - returns: The appropriate scene configuration (the same one, always).
-     */
-    func application(_ inApplication: UIApplication, configurationForConnecting inConnectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        UISceneConfiguration(name: "Default Configuration", sessionRole: inConnectingSceneSession.role)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
     }
 }
