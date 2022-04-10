@@ -5,7 +5,7 @@ Copyright 2020-2022, Little Green Viper Software Development LLC
 import UIKit
 
 /* ###################################################################################################################################### */
-// MARK: - UIImage Extension -
+// MARK: - Private UIImage Extension For Resizing -
 /* ###################################################################################################################################### */
 fileprivate extension UIImage {
     /* ################################################################## */
@@ -60,7 +60,7 @@ fileprivate extension UIImage {
             UIGraphicsBeginImageContextWithOptions(destinationSize, false, 0)
             defer { UIGraphicsEndImageContext() }   // This makes sure that we get rid of the offscreen context.
             draw(in: destinationRect, blendMode: .normal, alpha: 1)
-            return UIGraphicsGetImageFromCurrentImageContext()
+            return UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(renderingMode)
         }
         
         return nil
@@ -68,7 +68,7 @@ fileprivate extension UIImage {
 }
 
 /* ###################################################################################################################################### */
-// MARK: - Private CGPoint Extension -
+// MARK: - Private CGPoint Extension For Rotating Points -
 /* ###################################################################################################################################### */
 fileprivate extension CGPoint {
     /* ################################################################## */
@@ -103,24 +103,36 @@ fileprivate extension CGPoint {
 }
 
 /* ###################################################################################################################################### */
-// MARK: - A Special Button Class That Can Be Filled With A Gradient -
+// MARK: - A Special Button Class That Can Mask A Gradient -
 /* ###################################################################################################################################### */
 /**
- This class can be displayed with either the text filled with a gradient, or the background filled, and the text "cut out" of it.
+ This class can be displayed with either the text (or image) filled with a gradient, or the background filled, and the text (or image) "cut out" of it.
  All behavior is the same as any other UIButton.
  
  This allows you to specify a border, which will be included in the gradient fill.
  If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
  The border will be filled with the gradient, as well as the text or image.
+ This also causes the gradient to be wider.
+ Without the border, the gradient is restricted to the text/image frame.
+ 
+ The button can have either text or image (not both).
+ Text is given priority. If text is provided, then the images are ignored (and not displayed).
+ Images must be rendererable as template.
  */
 @IBDesignable
 open class RVS_MaskButton: UIButton {
+    /* ################################################################################################################################## */
+    // MARK: Private Static Constants
+    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      The transparency coefficient to use, if the control is highlighted.
      */
     private static var _highlightAlpha = CGFloat(0.25)
     
+    /* ################################################################################################################################## */
+    // MARK: Private Property
+    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      This caches the original alpha.
@@ -139,9 +151,16 @@ open class RVS_MaskButton: UIButton {
      */
     private var _maskLayer: CALayer?
     
+    /* ################################################################################################################################## */
+    // MARK: Public IB Properties
+    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      The starting color for the gradient.
+     If not provide, the view backgroundColor is used.
+     If that is not provided, then the view tintColor is used.
+     If that is not provided, the AccentColor is used.
+     If that is not provided, the class will not work.
      */
     @IBInspectable public var gradientStartColor: UIColor? {
         didSet {
@@ -152,7 +171,7 @@ open class RVS_MaskButton: UIButton {
 
     /* ################################################################## */
     /**
-     The ending color.
+     The ending color. If not provided, then the starting color is used.
      */
     @IBInspectable public var gradientEndColor: UIColor? {
         didSet {
@@ -163,7 +182,8 @@ open class RVS_MaskButton: UIButton {
 
     /* ################################################################## */
     /**
-     The angle of the gradient. 0 (default) is top-to-bottom.
+     The angle of the gradient, in degrees. 0 (default) is top-to-bottom.
+     Negative is counter-clockwise, and positive is clockwise.
      */
     @IBInspectable public var gradientAngleInDegrees: CGFloat = 0 {
         didSet {
@@ -188,19 +208,9 @@ open class RVS_MaskButton: UIButton {
 // MARK: Computed Properties
 /* ###################################################################################################################################### */
 extension RVS_MaskButton {
-    /* ################################################################## */
-    /**
-     This allows us to set and get the font used for the text button.
-     */
-    public var textFont: UIFont? {
-        get { titleLabel?.font }
-        set {
-            titleLabel?.font = newValue
-            _maskLayer = nil
-            setNeedsLayout()
-        }
-    }
-
+    /* ################################################################################################################################## */
+    // MARK: Internal Computed Properties
+    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      This returns the background gradient layer, rendering it, if necessary.
@@ -212,10 +222,27 @@ extension RVS_MaskButton {
      This returns the mask layer, rendering it, if necessary.
      */
     var maskLayer: CALayer? { makeOutlineLayer() }
+
+    /* ################################################################################################################################## */
+    // MARK: Public Computed Properties
+    /* ################################################################################################################################## */
+    /* ################################################################## */
+    /**
+     This allows us to set and get the font used for the text button.
+     **NOTE:** *This needs to be set programmatically, as Apple blocks access to an inspectable font property.*
+     */
+    public var textFont: UIFont? {
+        get { titleLabel?.font }
+        set {
+            titleLabel?.font = newValue
+            _maskLayer = nil
+            setNeedsLayout()
+        }
+    }
 }
 
 /* ###################################################################################################################################### */
-// MARK: Instance Methods
+// MARK: Internal Instance Methods
 /* ###################################################################################################################################### */
 extension RVS_MaskButton {
     /* ################################################################## */
@@ -233,6 +260,8 @@ extension RVS_MaskButton {
             _gradientLayer?.colors = [startColor.cgColor, endColor.cgColor]
             _gradientLayer?.startPoint = CGPoint(x: 0.5, y: 0)._rotated(around: CGPoint(x: 0.5, y: 0.5), byDegrees: gradientAngleInDegrees)
             _gradientLayer?.endPoint = CGPoint(x: 0.5, y: 1.0)._rotated(around: CGPoint(x: 0.5, y: 0.5), byDegrees: gradientAngleInDegrees)
+        } else {
+            assertionFailure("No Starting Color Provided for the RVS_MaskButton class!")
         }
         
         return _gradientLayer
@@ -245,6 +274,7 @@ extension RVS_MaskButton {
     func makeOutlineLayer() -> CALayer? {
         guard nil == _maskLayer else { return _maskLayer }
         
+        // These colors map to a transparency mask. White is opaque. Black is transparent.
         let foreColor = reversed ? UIColor.black.cgColor : UIColor.white.cgColor
         let backColor = reversed ? UIColor.white.cgColor : UIColor.black.cgColor
         
@@ -265,6 +295,11 @@ extension RVS_MaskButton {
             }
             
             titleLabel?.font = dynFont
+            
+            // If we have text, we do not have images.
+            setImage(nil, for: .normal)
+            setImage(nil, for: .highlighted)
+            setImage(nil, for: .disabled)
         }
         
         var subLayer: CALayer?
@@ -313,12 +348,12 @@ extension RVS_MaskButton {
 }
 
 /* ###################################################################################################################################### */
-// MARK: Base Class Overrides
+// MARK: Public Base Class Overrides
 /* ###################################################################################################################################### */
 extension RVS_MaskButton {
     /* ################################################################## */
     /**
-     We call this, when it's time to layout the control.
+     We call this, when it's time to lay out the control.
      We subvert the standard rendering, and replace it with our own rendering.
      Some of this comes from [this SO answer](https://stackoverflow.com/questions/42238603/reverse-a-calayer-mask/42238699#42238699)
      */
