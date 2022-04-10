@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RVS_MaskButton Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/RVS_MaskButton" class="dashAnchor"></a>
+
+    <a title="RVS_MaskButton Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          RVS_MaskButton Doumentation
+        </a>
+         (100% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/RiftValleySoftware/RVS_MaskButton">
+            <img class="header-icon" src="../img/gh.png" alt="GitHub"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html"> Reference</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      RVS_MaskButton Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RVS_MaskButton.html">RVS_MaskButton</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>RVS_MaskButton</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">@IBDesignable</span>
+<span class="kd">open</span> <span class="kd">class</span> <span class="kt">RVS_MaskButton</span> <span class="p">:</span> <span class="kt">UIButton</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class can be displayed with either the text filled with a gradient, or the background filled, and the text &ldquo;cut out&rdquo; of it.
+All behavior is the same as any other UIButton.</p>
+
+<p>This allows you to specify a border, which will be included in the gradient fill.
+If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
+The border will be filled with the gradient, as well as the text or image.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)gradientStartColor"></a>
+                    <a name="//apple_ref/swift/Property/gradientStartColor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)gradientStartColor">gradientStartColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The starting color for the gradient.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">gradientStartColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)gradientEndColor"></a>
+                    <a name="//apple_ref/swift/Property/gradientEndColor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)gradientEndColor">gradientEndColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ending color.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">gradientEndColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)gradientAngleInDegrees"></a>
+                    <a name="//apple_ref/swift/Property/gradientAngleInDegrees" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)gradientAngleInDegrees">gradientAngleInDegrees</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The angle of the gradient. 0 (default) is top-to-bottom.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">gradientAngleInDegrees</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)reversed"></a>
+                    <a name="//apple_ref/swift/Property/reversed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@RVS_MaskButton@objc(cs)RVS_MaskButton(py)reversed">reversed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If true, then the label is reversed, so the background is &ldquo;cut out&rdquo; of the foreground.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">reversed</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Computed%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Computed Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Computed%20Properties"></a>
+                  <h3 class="section-name"><span>Computed Properties</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14RVS_MaskButtonAAC8textFontSo6UIFontCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/textFont" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14RVS_MaskButtonAAC8textFontSo6UIFontCSgvp">textFont</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This allows us to set and get the font used for the text button.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textFont</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Base%20Class%20Overrides"></a>
+                <a name="//apple_ref/swift/Section/Base Class Overrides" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Base%20Class%20Overrides"></a>
+                  <h3 class="section-name"><span>Base Class Overrides</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)layoutSubviews"></a>
+                    <a name="//apple_ref/swift/Method/layoutSubviews()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)layoutSubviews">layoutSubviews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>We call this, when it&rsquo;s time to layout the control.
+We subvert the standard rendering, and replace it with our own rendering.
+Some of this comes from <a href="https://stackoverflow.com/questions/42238603/reverse-a-calayer-mask/42238699#42238699">this SO answer</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">layoutSubviews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)continueTrackingWithTouch:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/continueTracking(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)continueTrackingWithTouch:withEvent:">continueTracking(_:<wbr>with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called while tracking user touch. We use this to play with the alpha, while tracking.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">continueTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTouch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">,</span> <span class="n">with</span> <span class="nv">inEvent</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inTouch</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The touch being tracked.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>with</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The event that spawned the touch.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>True, if the touch is to continue.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)endTrackingWithTouch:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/endTracking(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)endTrackingWithTouch:withEvent:">endTracking(_:<wbr>with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when ending user touch. We use this to restore the alpha.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">endTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTouch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">?,</span> <span class="n">with</span> <span class="nv">inEvent</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inTouch</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The touch being tracked.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>with</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The event that spawned the touch.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)setTitle:forState:"></a>
+                    <a name="//apple_ref/swift/Method/setTitle(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)setTitle:forState:">setTitle(_:<wbr>for:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when setting text. We use this, to ensure we redraw the mask.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">setTitle</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTitle</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">inState</span><span class="p">:</span> <span class="kt">UIControl</span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inTitle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new text.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>for</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The state, to which the text applies.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)setImage:forState:"></a>
+                    <a name="//apple_ref/swift/Method/setImage(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@RVS_MaskButton@objc(cs)RVS_MaskButton(im)setImage:forState:">setImage(_:<wbr>for:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when setting images. We use this, to ensure we redraw the mask.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">setImage</span><span class="p">(</span><span class="n">_</span> <span class="nv">inImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">inState</span><span class="p">:</span> <span class="kt">UIControl</span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inImage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new image. It should be a template image.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>for</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The state, to which the text applies.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2022 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2022-04-10)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>

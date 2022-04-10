@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uCo-79-Gf5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SLUG-TAB-ITEM-1-->
+        <scene sceneID="LuC-jf-gWJ">
+            <objects>
+                <viewController id="Iv5-co-QgX" customClass="RVS_MaskButton_TestHarness_Tab1_ViewController" customModule="RVS_MaskButton_TestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ryk-Np-U9P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="1aj-ME-Hfz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CenterImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLO-fc-taS">
+                                <rect key="frame" x="83" y="324" width="248" height="248"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YG6-36-SoJ"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="rLO-fc-taS" firstAttribute="width" relation="lessThanOrEqual" secondItem="Ryk-Np-U9P" secondAttribute="width" multiplier="0.6" id="6xc-32-kOA"/>
+                            <constraint firstItem="rLO-fc-taS" firstAttribute="centerX" secondItem="Ryk-Np-U9P" secondAttribute="centerX" id="CAJ-C1-0Ue"/>
+                            <constraint firstAttribute="bottom" secondItem="1aj-ME-Hfz" secondAttribute="bottom" id="J9D-7b-vcL"/>
+                            <constraint firstItem="1aj-ME-Hfz" firstAttribute="top" secondItem="Ryk-Np-U9P" secondAttribute="top" id="LqE-OO-bml"/>
+                            <constraint firstItem="1aj-ME-Hfz" firstAttribute="leading" secondItem="Ryk-Np-U9P" secondAttribute="leading" id="YFV-la-NH3"/>
+                            <constraint firstAttribute="trailing" secondItem="1aj-ME-Hfz" secondAttribute="trailing" id="c3a-8Q-ZOk"/>
+                            <constraint firstItem="rLO-fc-taS" firstAttribute="centerY" secondItem="Ryk-Np-U9P" secondAttribute="centerY" id="hHE-vD-OjF"/>
+                            <constraint firstItem="rLO-fc-taS" firstAttribute="width" secondItem="rLO-fc-taS" secondAttribute="height" multiplier="1:1" id="hyr-xB-Kg2"/>
+                            <constraint firstItem="rLO-fc-taS" firstAttribute="height" relation="lessThanOrEqual" secondItem="Ryk-Np-U9P" secondAttribute="height" multiplier="0.6" id="qe8-x6-b9u"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="SLUG-TAB-ITEM-1" id="Mwb-VB-9Au"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uub-XB-FVD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1470" y="-480"/>
+        </scene>
+        <!--SLUG-TAB-ITEM-0-->
+        <scene sceneID="nqk-co-IMv">
+            <objects>
+                <viewController id="XeL-tn-FUU" customClass="RVS_MaskButton_TestHarness_Tab0_ViewController" customModule="RVS_MaskButton_TestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JD6-5S-fqx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="2nl-Ri-rPC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CenterImage" translatesAutoresizingMaskIntoConstraints="NO" id="Yfh-Aw-Kgj">
+                                <rect key="frame" x="83" y="324" width="248" height="248"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="v1H-wa-vy5"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="2nl-Ri-rPC" secondAttribute="bottom" id="8io-Gq-z2q"/>
+                            <constraint firstItem="2nl-Ri-rPC" firstAttribute="leading" secondItem="JD6-5S-fqx" secondAttribute="leading" id="KCg-no-VOG"/>
+                            <constraint firstAttribute="trailing" secondItem="2nl-Ri-rPC" secondAttribute="trailing" id="MZh-TZ-5DN"/>
+                            <constraint firstItem="2nl-Ri-rPC" firstAttribute="top" secondItem="JD6-5S-fqx" secondAttribute="top" id="dTX-dE-zUi"/>
+                            <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="width" secondItem="Yfh-Aw-Kgj" secondAttribute="height" multiplier="1:1" id="jDl-Fa-Skh"/>
+                            <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="centerX" secondItem="JD6-5S-fqx" secondAttribute="centerX" id="kC2-7H-aLX"/>
+                            <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="width" relation="lessThanOrEqual" secondItem="JD6-5S-fqx" secondAttribute="width" multiplier="0.6" id="lK7-uD-pjW"/>
+                            <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="height" relation="lessThanOrEqual" secondItem="JD6-5S-fqx" secondAttribute="height" multiplier="0.6" id="tAy-hc-JVD"/>
+                            <constraint firstItem="Yfh-Aw-Kgj" firstAttribute="centerY" secondItem="JD6-5S-fqx" secondAttribute="centerY" id="yz8-5h-QVr"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="SLUG-TAB-ITEM-0" id="v1D-sQ-Ovc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ovu-CP-HIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="-480"/>
+        </scene>
+        <!--Mask Button Test Harness Tab Bar Controller-->
+        <scene sceneID="4Po-S0-ILt">
+            <objects>
+                <tabBarController id="uCo-79-Gf5" customClass="RVS_MaskButton_TestHarness_TabBarController" customModule="RVS_MaskButton_TestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d0T-42-zLv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
+                        <tabBarAppearance key="standardAppearance">
+                            <color key="selectionIndicatorTintColor" systemColor="labelColor"/>
+                        </tabBarAppearance>
+                    </tabBar>
+                    <connections>
+                        <segue destination="XeL-tn-FUU" kind="relationship" relationship="viewControllers" id="48g-8Z-Qe5"/>
+                        <segue destination="Iv5-co-QgX" kind="relationship" relationship="viewControllers" id="dX9-lY-tUS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="191-0c-bmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832" y="-1207"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CenterImage" width="937" height="937"/>
+        <image name="background-gradient" width="1" height="1000"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.81800001859664917" blue="0.45600000023841858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
