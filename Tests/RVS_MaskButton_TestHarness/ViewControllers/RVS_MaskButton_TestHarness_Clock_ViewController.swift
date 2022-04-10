@@ -25,7 +25,7 @@ import RVS_MaskButton
 import RVS_BasicGCDTimer
 
 /* ###################################################################################################################################### */
-// MARK: - The Tab 1 (Clock) View Controller Class -
+// MARK: - The Tab 0 (Clock) View Controller Class -
 /* ###################################################################################################################################### */
 /**
  This tab presents the control as a digital clock.

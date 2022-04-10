@@ -138,12 +138,7 @@ class RVS_MaskButton_TestHarness_TabBase_ViewController: UIViewController {
             gradientAngleSliderChanged(gradientAngleSlider)
         }
     }
-}
 
-/* ###################################################################################################################################### */
-// MARK: Instance Methods
-/* ###################################################################################################################################### */
-extension RVS_MaskButton_TestHarness_TabBase_ViewController {
     /* ################################################################## */
     /**
      This sets the colored squares for the given switch.
