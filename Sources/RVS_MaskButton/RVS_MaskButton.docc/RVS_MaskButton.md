@@ -1,5 +1,3 @@
-![Icon](icon.png)
-
 # ``RVS_MaskButton``
 
 A Special UIButton Variant That Allows "See-Through" Masking.
@@ -10,27 +8,27 @@ This class implements an extremely basic [`UIButton`](https://developer.apple.co
 
 |Figure 1: The Basic Text Button|Figure 2: Reversed|
 |:----:|:----:|
-|![Figure 1](img/Figure-01.png)|![Figure 2](img/Figure-02.png)|
+|![Figure 1](Figure-01.png)|![Figure 2](Figure-02.png)|
 
 |Figure 3: With No Border|Figure 4: Rotated Gradient (Reversed)|
 |:----:|:----:|
-|![Figure 3](img/Figure-03.png)|![Figure 4](img/Figure-04.png)|
+|![Figure 3](Figure-03.png)|![Figure 4](Figure-04.png)|
 
 |Figure 5: Rotated Gradient (Normal)|Figure 6: Different Font|
 |:----:|:----:|
-|![Figure 5](img/Figure-05.png)|![Figure 6](img/Figure-06.png)|
+|![Figure 5](Figure-05.png)|![Figure 6](Figure-06.png)|
 
 |Figure 7: Solid Color (Blue)|Figure 8: Solid Color (Yellow)|
 |:----:|:----:|
-|![Figure 7](img/Figure-07.png)|![Figure 8](img/Figure-08.png)|
+|![Figure 7](Figure-07.png)|![Figure 8](Figure-08.png)|
 
 |Figure 9: Solid, Reversed, Image|Figure 10: Gradient, Normal, Image|
 |:----:|:----:|
-|![Figure 9](img/Figure-09.png)|![Figure 10](img/Figure-10.png)|
+|![Figure 9](Figure-09.png)|![Figure 10](Figure-10.png)|
 
 |Figure 11: Gradient, Reversed, Image|Figure 12: Gradient, Normal, Border, Image|
 |:----:|:----:|
-|![Figure 11](img/Figure-11.png)|![Figure 12](img/Figure-12.png)|
+|![Figure 11](Figure-11.png)|![Figure 12](Figure-12.png)|
 
 ## Usage
 
@@ -58,19 +56,19 @@ To begin with, drag a `Button` object from the Objects Palette, into your storyb
 
 |Figure 13: Dragging The UIButton Instance Into Your View Controller|
 |:----:|
-|![Figure 13](img/Figure-13.png)|
+|![Figure 13](Figure-13.png)|
 
 Once it has been installed, select the new object, and set its class to `RVS_MaskButton`, in the Identity Inspector. You may also need to specify the module as `RVS_MaskButton`.
 
 |Figure 14: Setting the Class Name|
 |:----:|
-|![Figure 14](img/Figure-14.png)|
+|![Figure 14](Figure-14.png)|
 
 Now, switch to the Attributes Inspector:
 
 |Figure 15: The Control Attributes|
 |:----:|
-|![Figure 15](img/Figure-15.png)|
+|![Figure 15](Figure-15.png)|
 
 We will exmaine each of the highlighted sections, below.
 
@@ -80,7 +78,7 @@ The top section has the controls unique to the `RVS_MaskButton` class:
 
 |Figure 16: The RVS_MaskButton Controls|
 |:----:|
-|![Figure 16](img/Figure-16.png)|
+|![Figure 16](Figure-16.png)|
 
 - `Gradient Start Color`
     This is the color to use as the "top," or start of the gradient. If left at default, it will use the `backgroundColor` (first choice), the `tintColor`, the view that is the parent's `tintColor` property, and finally, any color named "AccentColor" (the standard resource for a selection color). If none of these are available, the control will fail to render.
@@ -98,7 +96,7 @@ The top section has the controls unique to the `RVS_MaskButton` class:
 
 |Figure 17: The UIButton Controls|
 |:----:|
-|![Figure 17](img/Figure-17.png)|
+|![Figure 17](Figure-17.png)|
 
 Under the custom controls, are the standard controls for the [`UIButton`](https://developer.apple.com/documentation/uikit/uibutton) class.
 
@@ -114,7 +112,7 @@ At the bottom of the inspector, you will find the controls for the [`UIView`](ht
 
 |Figure 18: The UIView Controls|
 |:----:|
-|![Figure 17](img/Figure-17.png)|
+|![Figure 17](Figure-17.png)|
 
 You can set the `backgroundColor` and `tintColor` properties, here. It should be noted that the control sets both of these to `.clear`, at runtime, but does record them, if they are needed to specify colors in the gradient.
 
@@ -130,7 +128,7 @@ Apple restricts access to the UIButton's `font` property (the one that is set fr
 
 |Figure 19: The Clock Tab|Figure 20: The Card Tab|
 |:----:|:----:|
-|![Figure 19](img/Figure-19.png)|![Figure 20](img/Figure-20.png)|
+|![Figure 19](Figure-19.png)|![Figure 20](Figure-20.png)|
 
 [The project's test harness](https://github.com/RiftValleySoftware/RVS_MaskButton/tree/master/Tests/RVS_MaskButton_TestHarness) is a powerful and well-written app, designed to provide real-world examples of `RVS_MaskButton` in action. It has two tabs: One has an operating digital clock, exemplifying the text-based control, and the second tab has a "playing card browser," that allows you to see the buttons, using images.
 

@@ -69,10 +69,224 @@
 
 <p>A Special UIButton Variant That Allows &ldquo;See-Through&rdquo; Masking.</p>
 <h2 id='overview' class='heading'>Overview</h2>
+
+<p>This class implements an extremely basic <a href="https://developer.apple.com/documentation/uikit/uibutton"><code>UIButton</code></a>-subclassed button (so it can be used in place of UIButton) that provides a gradient background, and the ability to either mask it inside of text (you can use whetever font you want), or inside of a template image, or, alternatively, to fill the button with the gradient, and &ldquo;punch out&rdquo; the text and/or image. The gradient is a basic linear gradient between two colors, and the angle of the gradient can be changed. If just one color is defined, then the fill is a solid color. </p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 1: The Basic Text Button</th>
+<th style="text-align: center">Figure 2: Reversed</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-01.png" alt="Figure 1"></td>
+<td style="text-align: center"><img src="img/Figure-02.png" alt="Figure 2"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 3: With No Border</th>
+<th style="text-align: center">Figure 4: Rotated Gradient (Reversed)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-03.png" alt="Figure 3"></td>
+<td style="text-align: center"><img src="img/Figure-04.png" alt="Figure 4"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 5: Rotated Gradient (Normal)</th>
+<th style="text-align: center">Figure 6: Different Font</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-05.png" alt="Figure 5"></td>
+<td style="text-align: center"><img src="img/Figure-06.png" alt="Figure 6"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 7: Solid Color (Blue)</th>
+<th style="text-align: center">Figure 8: Solid Color (Yellow)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-07.png" alt="Figure 7"></td>
+<td style="text-align: center"><img src="img/Figure-08.png" alt="Figure 8"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 9: Solid, Reversed, Image</th>
+<th style="text-align: center">Figure 10: Gradient, Normal, Image</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-09.png" alt="Figure 9"></td>
+<td style="text-align: center"><img src="img/Figure-10.png" alt="Figure 10"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 11: Gradient, Reversed, Image</th>
+<th style="text-align: center">Figure 12: Gradient, Normal, Border, Image</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-11.png" alt="Figure 11"></td>
+<td style="text-align: center"><img src="img/Figure-12.png" alt="Figure 12"></td>
+</tr>
+</tbody></table>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='where-to-get' class='heading'>Where to Get</h3>
+
+<p>In order to use this class, you should install it as a <a href="https://swift.org/package-manager/">Swift Package Manager (SPM)</a> module.</p>
+
+<p>You can use SPM to load the project as a dependency, by referencing its GitHub Repo URI (SSH: <a href="mailto:git@github.com">git@github.com</a>:RiftValleySoftware/RVS_MaskButton.git, or HTTPS: <a href="https://github.com/RiftValleySoftware/RVS_MaskButton.git">https://github.com/RiftValleySoftware/RVS_MaskButton.git</a>.</p>
+
+<p>Once you have installed the module, you should include it in the file that will need to access it, like so:</p>
+<pre class="highlight plaintext"><code>import RVS_MaskButton
+</code></pre>
+
+<p>Alternatively, if the only place you set it up is the storyboard, you could just specify that class in the Interface Builder, and use standard <a href="https://developer.apple.com/documentation/uikit/uibutton"><code>UIButton</code></a> references, in your code.</p>
+<h3 id='integrating-rvs_maskbutton-into-your-project' class='heading'>Integrating RVS_MaskButton Into Your Project</h3>
+
+<p><strong>NOTE:</strong> <a href="https://riftvalleysoftware.github.io/RVS_MaskButton/">Here is the Technical Documentation for the Project</a>. Additionally, the module is designed to provide excellent <a href="https://developer.apple.com/documentation/docc">DocC</a> support, and will display in your Apple Documentation Window.</p>
+
+<p>Also, all of the examples here, come from <a href="https://github.com/RiftValleySoftware/RVS_MaskButton/tree/master/Tests/RVS_MaskButton_TestHarness">the test harness project</a>, which is an exellent source of example code.</p>
+<h4 id='via-the-storyboard-editor-interface-builder' class='heading'>Via the Storyboard Editor (Interface Builder)</h4>
+
+<p>To begin with, drag a <code>Button</code> object from the Objects Palette, into your storyboard, and attach it as you require.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 13: Dragging The UIButton Instance Into Your View Controller</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-13.png" alt="Figure 13"></td>
+</tr>
+</tbody></table>
+
+<p>Once it has been installed, select the new object, and set its class to <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code>, in the Identity Inspector. You may also need to specify the module as <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code>.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 14: Setting the Class Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-14.png" alt="Figure 14"></td>
+</tr>
+</tbody></table>
+
+<p>Now, switch to the Attributes Inspector:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 15: The Control Attributes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-15.png" alt="Figure 15"></td>
+</tr>
+</tbody></table>
+
+<p>We will exmaine each of the highlighted sections, below.</p>
+<h5 id='the-rvs_maskbutton-controls' class='heading'>The RVS_MaskButton Controls</h5>
+
+<p>The top section has the controls unique to the <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code> class:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 16: The RVS_MaskButton Controls</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-16.png" alt="Figure 16"></td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><p><code>Gradient Start Color</code>
+This is the color to use as the &ldquo;top,&rdquo; or start of the gradient. If left at default, it will use the <code>backgroundColor</code> (first choice), the <code>tintColor</code>, the view that is the parent&rsquo;s <code>tintColor</code> property, and finally, any color named &ldquo;AccentColor&rdquo; (the standard resource for a selection color). If none of these are available, the control will fail to render.</p></li>
+<li><p><code>Gradient End Color</code>
+This is the color to use as the &ldquo;bottom,&rdquo; or end of the gradient. If left at default, the <code>gradientStartColor</code> will be used (solid color).</p></li>
+<li><p><code>Gradient Angle In Degrees</code>
+This is the angle at which the gradient will be drawn. It can be -180&hellip;180. 0 (default), means the <code>gradientStartColor</code> is at the top, and the <code>gradientEndColor</code> is at the bottom. Negative values are counter-clockwise, and positive values are clockwise.</p></li>
+<li><p><code>Reversed</code>
+This indicates that the control should be rendered, so that the foreground (text or image) is &ldquo;punched out&rdquo; of the background, which will be filled with the gradient. If it is false (default), then only the text/image will be filled with the gradient.</p></li>
+</ul>
+<h5 id='the-ubutton-controls' class='heading'>The UButton Controls</h5>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 17: The UIButton Controls</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-17.png" alt="Figure 17"></td>
+</tr>
+</tbody></table>
+
+<p>Under the custom controls, are the standard controls for the <a href="https://developer.apple.com/documentation/uikit/uibutton"><code>UIButton</code></a> class.</p>
+
+<p>The button should be set to &ldquo;Default&rdquo; style. This class does not leverage some of the newer features of the parent class. However, you can specify different text for each mode (normal, highlighted, or disabled), as well as images for each mode. The control will use these values, when displaying in the appropriate mode.</p>
+
+<p>When highlighted, the control will always dim the display (by using reduced opacity). It does not do anything, by default, for disabled (in fact, you could use a disabled <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code> instance as a de facto &ldquo;label&rdquo;).</p>
+
+<p>You can specify a font, here. This font will be used for rendering.</p>
+<h5 id='the-uiview-controls' class='heading'>The UIView Controls</h5>
+
+<p>At the bottom of the inspector, you will find the controls for the <a href="https://developer.apple.com/documentation/uikit/uiview"><code>UIView</code></a> base class.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 18: The UIView Controls</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-17.png" alt="Figure 17"></td>
+</tr>
+</tbody></table>
+
+<p>You can set the <code>backgroundColor</code> and <code>tintColor</code> properties, here. It should be noted that the control sets both of these to <code>.clear</code>, at runtime, but does record them, if they are needed to specify colors in the gradient.</p>
+<h5 id='what-about-quot-border-color-quot-and-quot-corner-radius-quot' class='heading'>What About &ldquo;Border Color&rdquo; and &ldquo;Corner Radius&rdquo;?</h5>
+
+<p>These are available in the inspector, because the test harness uses <a href="https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Tests/RVS_MaskButton_TestHarness/ViewControllers/RVS_MaskButton_TestHarness_TabBase_ViewController.swift#L26">a special custom extension of UIView</a>. Normally, these will not be available, and you will need to programmatically change the control&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiview/1622436-layer"><code>layer</code></a> properties. If the <a href="https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth"><code>layer.borderWidth</code></a> property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.</p>
+<h6 id='a-note-on-programmatically-setting-the-font' class='heading'>A Note On Programmatically Setting the Font</h6>
+
+<p>Apple restricts access to the UIButton&rsquo;s <code>font</code> property (the one that is set from the Attributes Inspector), so we declare <a href="https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Sources/RVS_MaskButton/RVS_MaskButton.swift#L267">a separate accessor, called <code>bttonFont: UIFont?</code></a>. Use this to prgrammatically set the font.</p>
+<h2 id='the-test-harness-app' class='heading'>The Test Harness App</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Figure 19: The Clock Tab</th>
+<th style="text-align: center">Figure 20: The Card Tab</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><img src="img/Figure-19.png" alt="Figure 19"></td>
+<td style="text-align: center"><img src="img/Figure-20.png" alt="Figure 20"></td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/RiftValleySoftware/RVS_MaskButton/tree/master/Tests/RVS_MaskButton_TestHarness">The project&rsquo;s test harness</a> is a powerful and well-written app, designed to provide real-world examples of <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code> in action. It has two tabs: One has an operating digital clock, exemplifying the text-based control, and the second tab has a &ldquo;playing card browser,&rdquo; that allows you to see the buttons, using images.</p>
+
+<p>Each tab has a set of controls, allowing you to access the various properties.</p>
+
+<p><strong>NOTE:</strong> The app does not work well in landscape mode, on phones. The screen is too tight.</p>
 <h2 id='dependencies' class='heading'>Dependencies</h2>
 
-<p>The button class, itself, has no dependencies, but the test harness depends on the <a href="https://github.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox">RVS_Generic_Swift_Toolbox module</a>.
-We use the &ldquo;Let&rsquo;s Go Digital&rdquo; font, from Wolf Lambert (WLM Fonts), in the test harness app.</p>
+<p>The button class, itself, has no dependencies, but the test harness depends on the <a href="https://github.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox">RVS_Generic_Swift_Toolbox module</a>, and the <a href="https://github.com/RiftValleySoftware/RVS_BasicGCDTimer">RVS_BasicGCDTimer module</a>.
+We use the &ldquo;Let&rsquo;s Go Digital&rdquo; font, from Wolf Lambert (WLM Fonts), in the test harness app.
+The playing card images that we use in the test harness app, came from <a href="https://commons.wikimedia.org/wiki/File:English_pattern_playing_cards_deck_PLUS.svg">Wikimedia Commons</a>.</p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>© Copyright 2022, The Great Rift Valley Software Company</p>

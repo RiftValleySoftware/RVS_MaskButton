@@ -12,5 +12,5 @@ jazzy  --readme ./README.md \
        --min_acl public \
        --output docs \
        --theme fullwidth
-cp ./icon.png docs/img
+cp ./icon.png docs
 cp ./img/* docs/img
