@@ -257,7 +257,7 @@ This indicates that the control should be rendered, so that the foreground (text
 </tbody></table>
 
 <p>You can set the <code>backgroundColor</code> and <code>tintColor</code> properties, here. It should be noted that the control sets both of these to <code>.clear</code>, at runtime, but does record them, if they are needed to specify colors in the gradient.</p>
-<h5 id='what-about-quot-border-color-quot-and-quot-corner-radius-quot' class='heading'>What About &ldquo;Border Color&rdquo; and &ldquo;Corner Radius&rdquo;?</h5>
+<h5 id='what-about-quot-corner-radius-quot-and-quot-border-width-quot' class='heading'>What About &ldquo;Corner Radius&rdquo; and &ldquo;Border Width&rdquo;?</h5>
 
 <p>These are available in the inspector, because the test harness uses <a href="https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Tests/RVS_MaskButton_TestHarness/ViewControllers/RVS_MaskButton_TestHarness_TabBase_ViewController.swift#L26">a special custom extension of UIView</a>. Normally, these will not be available, and you will need to programmatically change the control&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiview/1622436-layer"><code>layer</code></a> properties. If the <a href="https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth"><code>layer.borderWidth</code></a> property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.</p>
 <h6 id='a-note-on-programmatically-setting-the-font' class='heading'>A Note On Programmatically Setting the Font</h6>
