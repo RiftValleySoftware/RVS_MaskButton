@@ -168,6 +168,18 @@ open class RVS_MaskButton: UIButton {
     
     /* ################################################################## */
     /**
+     This caches the original background color.
+     */
+    private var _originalBackgroundColor: UIColor?
+    
+    /* ################################################################## */
+    /**
+     This caches the original tint color.
+     */
+    private var _originalTintColor: UIColor?
+
+    /* ################################################################## */
+    /**
      This caches the gradient layer.
      */
     private var _gradientLayer: CAGradientLayer?
@@ -277,8 +289,8 @@ extension RVS_MaskButton {
     func makeGradientLayer() -> CALayer? {
         guard nil == _gradientLayer else { return _gradientLayer }
         
-        // We try to get whatever the user explicitly set. If not that, then a background color, then the tint color, and, finally, the accent color. If not that, we give up.
-        if let startColor = gradientStartColor ?? backgroundColor ?? tintColor ?? UIColor(named: "AccentColor") {
+        // We try to get whatever the user explicitly set. If not that, then a background color, then the tint color (both ours and super), and, finally, the accent color. If not that, we give up.
+        if let startColor = gradientStartColor ?? _originalBackgroundColor ?? _originalTintColor ?? superview?.tintColor ?? UIColor(named: "AccentColor") {
             let endColor = gradientEndColor ?? startColor
             _gradientLayer = CAGradientLayer()
             _gradientLayer?.frame = bounds
@@ -405,6 +417,16 @@ extension RVS_MaskButton {
             _originalAlpha = alpha
         }
         
+        if nil == _originalBackgroundColor {
+            _originalBackgroundColor = backgroundColor
+            backgroundColor = nil
+        }
+        
+        if nil == _originalTintColor {
+            _originalTintColor = tintColor
+            tintColor = nil
+        }
+
         // This sets up the baseline.
         layer.borderColor = UIColor.clear.cgColor
         titleLabel?.textColor = .clear
@@ -415,8 +437,6 @@ extension RVS_MaskButton {
         if let gradientLayer = gradientLayer,
            let initialMaskLayer = maskLayer,
            let filter = CIFilter(name: "CIMaskToAlpha") {
-            tintColor = .clear
-            backgroundColor = .clear
             layer.addSublayer(gradientLayer)
             let renderedCoreImage = CIImage(image: UIGraphicsImageRenderer(size: bounds.size).image { initialMaskLayer.render(in: $0.cgContext) })
             filter.setValue(renderedCoreImage, forKey: "inputImage")

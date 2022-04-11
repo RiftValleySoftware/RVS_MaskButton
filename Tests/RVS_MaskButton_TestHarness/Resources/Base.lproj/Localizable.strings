@@ -21,7 +21,7 @@
 */
 
 "SLUG-TAB-ITEM-0"       =   "Clock";
-"SLUG-TAB-ITEM-1"       =   "Examples";
+"SLUG-TAB-ITEM-1"       =   "Cards";
 
 "SLUG-SEG-NORMAL"       =   "Normal";
 "SLUG-SEG-REVERSED"     =   "Reversed";
@@ -31,5 +31,3 @@
 
 "SLUG-FONT-0"           =   "Digital";
 "SLUG-FONT-1"           =   "System";
-
-"SLUG-BUTTON-0"         =   "CAT";
