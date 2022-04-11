@@ -56,7 +56,7 @@ class RVS_MaskButton_TestHarness_Cards_ViewController: RVS_MaskButton_TestHarnes
     /* ################################################################## */
     /**
      */
-    static let verticalImageNames: [ImageReference] = [(imageName: "S", sfSymbol: "suit.spade,fill"),
+    static let verticalImageNames: [ImageReference] = [(imageName: "S", sfSymbol: "suit.spade.fill"),
                                                        (imageName: "H", sfSymbol: "suit.heart.fill"),
                                                        (imageName: "C", sfSymbol: "suit.club.fill"),
                                                        (imageName: "D", sfSymbol: "suit.diamond.fill")
@@ -218,7 +218,8 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
             upMaskButton?.setImage(upImage, for: .normal)
         }
         
-        if let downImage = UIImage(systemName: currentDownImage)?.applyingSymbolConfiguration(UIImage.SymbolConfiguration(scale: .large)) {
+        let downName = currentDownImage
+        if let downImage = UIImage(systemName: downName)?.applyingSymbolConfiguration(UIImage.SymbolConfiguration(scale: .large)) {
             downMaskButton?.setImage(downImage, for: .normal)
         }
         
