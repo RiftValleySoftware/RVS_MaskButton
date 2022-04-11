@@ -118,7 +118,7 @@ At the bottom of the inspector, you will find the controls for the [`UIView`](ht
 
 You can set the `backgroundColor` and `tintColor` properties, here. It should be noted that the control sets both of these to `.clear`, at runtime, but does record them, if they are needed to specify colors in the gradient.
 
-##### What About "Border Color" and "Corner Radius"?
+##### What About "Corner Radius" and "Border Width"?
 
 These are available in the inspector, because the test harness uses [a special custom extension of UIView](https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Tests/RVS_MaskButton_TestHarness/ViewControllers/RVS_MaskButton_TestHarness_TabBase_ViewController.swift#L26). Normally, these will not be available, and you will need to programmatically change the control's [`layer`](https://developer.apple.com/documentation/uikit/uiview/1622436-layer) properties. If the [`layer.borderWidth`](https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth) property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.
 
