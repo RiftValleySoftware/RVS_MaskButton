@@ -109,6 +109,15 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
     
     /* ################################################################## */
     /**
+     Called when the layout changes. We make sure to completely redraw the buttons.
+     */
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        digitalClockButton?.forceRedraw()
+    }
+
+    /* ################################################################## */
+    /**
      Called just before the view appears. We use this to set the display to a standard starting point.
      
      - parameter inIsAnimated: True, if the appearance will be animated.
@@ -160,7 +169,7 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
      */
     override func borderSelectionSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
         digitalClockButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
-        digitalClockButton?.forceReDraw()
+        digitalClockButton?.forceRedraw()
     }
 
     /* ################################################################## */

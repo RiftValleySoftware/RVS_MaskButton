@@ -252,6 +252,18 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
     
     /* ################################################################## */
     /**
+     Called when the layout changes. We make sure to completely redraw the buttons.
+     */
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        leftMaskButton?.forceRedraw()
+        rightMaskButton?.forceRedraw()
+        upMaskButton?.forceRedraw()
+        downMaskButton?.forceRedraw()
+    }
+    
+    /* ################################################################## */
+    /**
      Called when the segmented switch, controlling the cutout method, is hit.
      
      - parameter inSegmentedSwitch: The switch instance.
@@ -271,13 +283,13 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
      */
     override func borderSelectionSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
         leftMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
-        leftMaskButton?.forceReDraw()
+        leftMaskButton?.forceRedraw()
         rightMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
-        rightMaskButton?.forceReDraw()
+        rightMaskButton?.forceRedraw()
         upMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
-        upMaskButton?.forceReDraw()
+        upMaskButton?.forceRedraw()
         downMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
-        downMaskButton?.forceReDraw()
+        downMaskButton?.forceRedraw()
     }
 
     /* ################################################################## */

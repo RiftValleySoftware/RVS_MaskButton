@@ -393,7 +393,7 @@ extension RVS_MaskButton {
     /**
      This is used to flush the caches, and redraw the button.
      */
-    public func forceReDraw() {
+    public func forceRedraw() {
         _gradientLayer = nil
         _maskLayer = nil
         setNeedsLayout()
