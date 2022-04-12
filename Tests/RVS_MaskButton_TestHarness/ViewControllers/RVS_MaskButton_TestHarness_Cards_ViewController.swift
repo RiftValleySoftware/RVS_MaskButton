@@ -248,6 +248,8 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
         normalReverseSegmentedSwitch?.selectedSegmentIndex = 1
         startTintSelectorSegmentedSwitch?.selectedSegmentIndex = 1
         endTintSelectorSegmentedSwitch?.selectedSegmentIndex = 0
+        currentVerticalIndex = 1
+        currentHorizontalIndex = 11
         overrideThisAndSetUpTheScreenAccordingToTheSettings()
     }
     

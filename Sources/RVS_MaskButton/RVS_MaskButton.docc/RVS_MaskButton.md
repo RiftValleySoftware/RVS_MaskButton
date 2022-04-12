@@ -22,11 +22,11 @@ This class implements an extremely basic [`UIButton`](https://developer.apple.co
 |:----:|:----:|
 |![Figure 7](Figure-07.png)|![Figure 8](Figure-08.png)|
 
-|Figure 9: Solid, Reversed, Image|Figure 10: Gradient, Normal, Image|
+|Figure 9: Solid, Reversed, Border, Image|Figure 10: Solid, Normal, Image|
 |:----:|:----:|
 |![Figure 9](Figure-09.png)|![Figure 10](Figure-10.png)|
 
-|Figure 11: Gradient, Reversed, Image|Figure 12: Gradient, Normal, Border, Image|
+|Figure 11: Gradient, Reversed, Border, Image|Figure 12: Gradient, Normal, Border, Image|
 |:----:|:----:|
 |![Figure 11](Figure-11.png)|![Figure 12](Figure-12.png)|
 
@@ -112,13 +112,28 @@ At the bottom of the inspector, you will find the controls for the [`UIView`](ht
 
 |Figure 18: The UIView Controls|
 |:----:|
-|![Figure 17](Figure-17.png)|
+|![Figure 18](Figure-18.png)|
 
 You can set the `backgroundColor` and `tintColor` properties, here. It should be noted that the control sets both of these to `.clear`, at runtime, but does record them, if they are needed to specify colors in the gradient.
 
 ##### What About "Border Color" and "Corner Radius"?
 
 These are available in the inspector, because the test harness uses [a special custom extension of UIView](https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Tests/RVS_MaskButton_TestHarness/ViewControllers/RVS_MaskButton_TestHarness_TabBase_ViewController.swift#L26). Normally, these will not be available, and you will need to programmatically change the control's [`layer`](https://developer.apple.com/documentation/uikit/uiview/1622436-layer) properties. If the [`layer.borderWidth`](https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth) property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.
+
+#### Programmatically
+
+You create an instance of `RVS_MaskButton` in exactly the same way that you create an instance of [`UButton`](https://developer.apple.com/documentation/uikit/uibutton):
+
+    let maskButtonBald = RVS_MaskButton()
+    let maskButtonFramed = RVS_MaskButton(frame: maskFrame)
+
+You can then do things like set up auto-layout, and assign selector actions.
+
+###### Forcing A Redraw
+
+Whether the control was set up via storyboard or programmatically, it caches images, and may sometimes need to flush the caches, and redraw. This is done via the [`forceRedraw`](https://riftvalleysoftware.github.io/RVS_MaskButton/Classes/RVS_MaskButton.html#/s:14RVS_MaskButtonAAC11forceRedrawyyF) method.
+
+It is suggested that you call this method whenever the view controller executes its [`viewWillLayoutSubviews()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621437-viewwilllayoutsubviews) method.
 
 ###### A Note On Programmatically Setting the Font
 
