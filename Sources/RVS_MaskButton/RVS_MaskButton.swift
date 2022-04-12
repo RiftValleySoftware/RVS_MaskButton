@@ -133,7 +133,8 @@ fileprivate extension CGPoint {
  If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
  The border will be filled with the gradient, as well as the text or image.
  
- The button can have either text or image (not both).
+ The button can have either text or image (not both). It also only applies to .normal, .highlighted, and .disabled states.
+ You may have different text or images for those three states.
  Text is given priority. If text is provided, then the images are ignored (and not displayed).
  Images must be rendererable as template.
  
@@ -412,6 +413,43 @@ extension RVS_MaskButton {
      */
     override public func layoutSubviews() {
         super.layoutSubviews()
+        // We do all this to enforce the exclusionary aspect of the control.
+        // We can only have text, or image, but not both.
+        // If we have text, we do not have an image.
+        // We only apply these to .normal, .highlighted, and .disabled.
+        if let text = title(for: .normal) {
+            if !text.isEmpty {
+                setImage(nil, for: .normal)
+            } else {
+                setTitle(nil, for: .normal)
+            }
+        }
+        
+        if let text = title(for: .highlighted) {
+            if !text.isEmpty {
+                setImage(nil, for: .highlighted)
+            } else {
+                setTitle(nil, for: .highlighted)
+            }
+        }
+        
+        if let text = title(for: .disabled) {
+            if !text.isEmpty {
+                setImage(nil, for: .disabled)
+            } else {
+                setTitle(nil, for: .disabled)
+            }
+        }
+        
+        setTitle(nil, for: .focused)
+        setImage(nil, for: .focused)
+        setTitle(nil, for: .application)
+        setImage(nil, for: .application)
+        setTitle(nil, for: .selected)
+        setImage(nil, for: .application)
+        setTitle(nil, for: .reserved)
+        setImage(nil, for: .reserved)
+
         if 0 == _originalAlpha,
            0 < alpha {
             _originalAlpha = alpha

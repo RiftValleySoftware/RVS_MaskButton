@@ -130,8 +130,18 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
         }
         
         overrideThisAndSetUpTheScreenAccordingToTheSettings()
+    }
+
+    /* ################################################################## */
+    /**
+     Called just after the view appears. We use this to set the timer going.
+     
+     - parameter inIsAnimated: True, if the appearance will be animated.
+     */
+    override func viewDidAppear(_ inIsAnimated: Bool) {
+        super.viewDidAppear(inIsAnimated)
         
-        timerInstance = RVS_BasicGCDTimer(timeIntervalInSeconds: 1.0, delegate: self, leewayInMilliseconds: 100, onlyFireOnce: false, queue: DispatchQueue.main, isWallTime: true)
+        timerInstance = RVS_BasicGCDTimer(timeIntervalInSeconds: 1.0, delegate: self, leewayInMilliseconds: 100, onlyFireOnce: false, isWallTime: true)
 
         timerInstance?.isRunning = true
         
@@ -249,7 +259,7 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController: RVS_BasicGCDTimerDele
         
         if lastTimeString != timeString {
             lastTimeString = timeString
-            digitalClockButton?.setTitle(timeString, for: .normal)
+            DispatchQueue.main.async { [weak self] in self?.digitalClockButton?.setTitle(timeString, for: .normal) }
         }
     }
 }
