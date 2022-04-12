@@ -413,42 +413,6 @@ extension RVS_MaskButton {
      */
     override public func layoutSubviews() {
         super.layoutSubviews()
-        // We do all this to enforce the exclusionary aspect of the control.
-        // We can only have text, or image, but not both.
-        // If we have text, we do not have an image.
-        // We only apply these to .normal, .highlighted, and .disabled.
-        if let text = title(for: .normal) {
-            if !text.isEmpty {
-                setImage(nil, for: .normal)
-            } else {
-                setTitle(nil, for: .normal)
-            }
-        }
-        
-        if let text = title(for: .highlighted) {
-            if !text.isEmpty {
-                setImage(nil, for: .highlighted)
-            } else {
-                setTitle(nil, for: .highlighted)
-            }
-        }
-        
-        if let text = title(for: .disabled) {
-            if !text.isEmpty {
-                setImage(nil, for: .disabled)
-            } else {
-                setTitle(nil, for: .disabled)
-            }
-        }
-        
-        setTitle(nil, for: .focused)
-        setImage(nil, for: .focused)
-        setTitle(nil, for: .application)
-        setImage(nil, for: .application)
-        setTitle(nil, for: .selected)
-        setImage(nil, for: .application)
-        setTitle(nil, for: .reserved)
-        setImage(nil, for: .reserved)
 
         if 0 == _originalAlpha,
            0 < alpha {

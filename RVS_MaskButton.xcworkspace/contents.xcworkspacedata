@@ -7,6 +7,70 @@
       <FileRef
          location = "group:README.md">
       </FileRef>
+      <Group
+         location = "group:img"
+         name = "img">
+         <FileRef
+            location = "group:Figure-01.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-02.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-03.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-04.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-05.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-06.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-07.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-08.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-09.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-10.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-11.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-12.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-13.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-14.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-15.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-16.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-17.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-18.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-19.png">
+         </FileRef>
+         <FileRef
+            location = "group:Figure-20.png">
+         </FileRef>
+      </Group>
       <FileRef
          location = "group:CHANGELOG.md">
       </FileRef>
@@ -18,6 +82,9 @@
       </FileRef>
       <FileRef
          location = "group:LICENSE">
+      </FileRef>
+      <FileRef
+         location = "group:.swiftlint.yml">
       </FileRef>
       <FileRef
          location = "group:Package.swift">
