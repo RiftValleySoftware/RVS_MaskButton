@@ -28,9 +28,9 @@ excluded:
 - DerivedData
 
 line_length:
-- 360 # warning
-- 400 # error
+- 222 # warning
+- 223 # error
 
 cyclomatic_complexity:
-- 21 # warning
-- 22 # error
+- 09 # warning
+- 10 # error

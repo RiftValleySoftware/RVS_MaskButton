@@ -24,44 +24,10 @@ import UIKit
 import RVS_MaskButton
 
 /* ###################################################################################################################################### */
-// MARK: - UIView Extension -
-/* ###################################################################################################################################### */
-/**
- We add a couple of ways to deal with IB properties (shortcuts to layer properties).
- */
-extension UIView {
-    /* ################################################################## */
-    /**
-     This gives us access to the corner radius, so we can give the view rounded corners.
-     
-     > **NOTE:** This requires that `clipsToBounds` be set.
-     */
-    @IBInspectable var cornerRadius: CGFloat {
-        get { layer.cornerRadius }
-        set {
-            layer.cornerRadius = newValue
-            setNeedsDisplay()
-        }
-    }
-    
-    /* ################################################################## */
-    /**
-     Inspired by [this SO answer](https://stackoverflow.com/a/45089222/879365)
-     This allows us to specify a border for the view. It is width, in display units.
-     */
-    @IBInspectable var borderWidth: CGFloat {
-        get { layer.borderWidth }
-        set {
-            layer.borderWidth = newValue
-            setNeedsDisplay()
-        }
-    }
-}
-
-/* ###################################################################################################################################### */
 // MARK: - The Base (Both Tabs) Base View Controller Class -
 /* ###################################################################################################################################### */
 /**
+ This class provides some common functionality for each of the tab view controllers.
  */
 class RVS_MaskButton_TestHarness_TabBase_ViewController: UIViewController {
     /* ################################################################################################################################## */
@@ -92,7 +58,7 @@ class RVS_MaskButton_TestHarness_TabBase_ViewController: UIViewController {
 
     /* ################################################################## */
     /**
-     This segmented switch allows us to switch between bordered and unbordered.
+     This segmented switch allows us to select a border width. 0 is no border.
      */
     @IBOutlet weak var borderSelectionSegmentedSwitch: UISegmentedControl!
 
@@ -117,6 +83,7 @@ class RVS_MaskButton_TestHarness_TabBase_ViewController: UIViewController {
     /* ################################################################## */
     /**
      This should be overridden, and used to set up the screen to match the settings.
+     Overrides should call this.
      */
     func overrideThisAndSetUpTheScreenAccordingToTheSettings() {
         if let normalReverseSegmentedSwitch = normalReverseSegmentedSwitch {
@@ -187,18 +154,17 @@ extension RVS_MaskButton_TestHarness_TabBase_ViewController {
 
         if let startTintSelectorSegmentedSwitch = startTintSelectorSegmentedSwitch,
            let endTintSelectorSegmentedSwitch = endTintSelectorSegmentedSwitch {
+            // We set the colored squares in the tint selector switches.
             setSegmentedTintSelect(for: startTintSelectorSegmentedSwitch)
             setSegmentedTintSelect(for: endTintSelectorSegmentedSwitch)
+            // We execute the callbacks manually, in order to "prime the pump."
             tintSegmentedSwitchHit(startTintSelectorSegmentedSwitch)
             tintSegmentedSwitchHit(endTintSelectorSegmentedSwitch)
         }
         
-        if let count = borderSelectionSegmentedSwitch?.numberOfSegments {
-            for index in (0..<count) {
-                if let title = borderSelectionSegmentedSwitch?.titleForSegment(at: index) {
-                    borderSelectionSegmentedSwitch?.setTitle(title.localizedVariant, forSegmentAt: index)
-                }
-            }
+        // We always start with a fat border.
+        if let borderSelectionSegmentedSwitch = borderSelectionSegmentedSwitch {
+            borderSelectionSegmentedSwitch.selectedSegmentIndex = borderSelectionSegmentedSwitch.numberOfSegments - 1
         }
     }
     
@@ -214,17 +180,15 @@ extension RVS_MaskButton_TestHarness_TabBase_ViewController {
         if let normalReverseSegmentedSwitch = normalReverseSegmentedSwitch {
             normalReverseSegmentedSwitch.selectedSegmentIndex = 0
         }
-        
-        if let borderSelectionSegmentedSwitch = borderSelectionSegmentedSwitch {
-            borderSelectionSegmentedSwitch.selectedSegmentIndex = 0
-        }
 
         if let startTintSelectorSegmentedSwitch = startTintSelectorSegmentedSwitch,
            let endTintSelectorSegmentedSwitch = endTintSelectorSegmentedSwitch {
+            // Start with Dark blue top, accent color bottom.
             startTintSelectorSegmentedSwitch.selectedSegmentIndex = 2
             endTintSelectorSegmentedSwitch.selectedSegmentIndex = 1
         }
         
+        // Start in the middle.
         if let gradientAngleSlider = gradientAngleSlider {
             gradientAngleSlider.value = 0
         }

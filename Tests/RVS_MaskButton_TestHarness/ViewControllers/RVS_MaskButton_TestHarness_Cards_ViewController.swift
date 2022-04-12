@@ -27,7 +27,15 @@ import RVS_MaskButton
 // MARK: - The Tab 1 (Examples) View Controller Class -
 /* ###################################################################################################################################### */
 /**
- This tab presents the control in a few configurations.
+ This tab presents a simple "card cycle" UI.
+ 
+ It presents a window, with two buttons on the bottom, and two in the right margin, of a window that has a playing card displayed.
+ 
+ Selecting the lower buttons, moves the card value (Ace -> King).
+ 
+ Selecting the margin buttons, selects the suite (Spades, Hearts, Clubs, and Diamonds).
+ 
+ These buttons all use images (SF Symbols).
  */
 class RVS_MaskButton_TestHarness_Cards_ViewController: RVS_MaskButton_TestHarness_TabBase_ViewController {
     /* ################################################################## */
@@ -37,6 +45,7 @@ class RVS_MaskButton_TestHarness_Cards_ViewController: RVS_MaskButton_TestHarnes
     
     /* ################################################################## */
     /**
+     Each suit is represented by its various members. A...K (Ace, 2-10, Jack, Queen, King).
      */
     static let horizontalImageNames: [ImageReference] = [(imageName: "1", sfSymbol: "a.circle.fill"),
                                                          (imageName: "2", sfSymbol: "2.circle.fill"),
@@ -55,6 +64,7 @@ class RVS_MaskButton_TestHarness_Cards_ViewController: RVS_MaskButton_TestHarnes
     
     /* ################################################################## */
     /**
+     Spades, Hearts, Clubs, and Diamonds.
      */
     static let verticalImageNames: [ImageReference] = [(imageName: "S", sfSymbol: "suit.spade.fill"),
                                                        (imageName: "H", sfSymbol: "suit.heart.fill"),
@@ -64,42 +74,56 @@ class RVS_MaskButton_TestHarness_Cards_ViewController: RVS_MaskButton_TestHarnes
     
     /* ################################################################## */
     /**
+     The zero-based current horizontal index of the displayed card (which suit member).
      */
     var currentHorizontalIndex: Int = 0
     
     /* ################################################################## */
     /**
+     The zero-based current vertiical index of the displayed card (which suit).
      */
     var currentVerticalIndex: Int = 0
     
     /* ################################################################## */
     /**
+     The container, for all the various parts of the "card sorter."
      */
-    @IBOutlet weak var cardImageView: UIImageView!
+    @IBOutlet weak var imageContainerView: UIView?
 
     /* ################################################################## */
     /**
+     This is the displayed card.
+     */
+    @IBOutlet weak var cardImageView: UIImageView?
+
+    /* ################################################################## */
+    /**
+     The bottom button on the left; used to select suit members.
      */
     @IBOutlet weak var leftMaskButton: RVS_MaskButton?
 
     /* ################################################################## */
     /**
+     The bottom button on the right; used to select suit members.
      */
     @IBOutlet weak var rightMaskButton: RVS_MaskButton?
 
     /* ################################################################## */
     /**
+     The upper side button on the right border; used to select suits.
      */
     @IBOutlet weak var upMaskButton: RVS_MaskButton?
     
     /* ################################################################## */
     /**
+     The lower side button on the right border; used to select suits.
      */
     @IBOutlet weak var downMaskButton: RVS_MaskButton?
     
     /* ################################################################## */
     /**
      This sets the various controls up to our initial default.
+     This override needs to be in the main declaration (not an extension).
      */
     override func overrideThisAndSetUpTheScreenAccordingToTheSettings() {
         super.overrideThisAndSetUpTheScreenAccordingToTheSettings()
@@ -109,7 +133,8 @@ class RVS_MaskButton_TestHarness_Cards_ViewController: RVS_MaskButton_TestHarnes
     /* ################################################################## */
     /**
      This sets the colored squares for the given switch.
-     */
+     This override needs to be in the main declaration (not an extension).
+    */
     override func setSegmentedTintSelect(for inTintSlectorSegmentedSwitch: UISegmentedControl) {
         // Set up the little tint squares for the tint selector control.
         if let image = UIImage(systemName: "square.slash")?.withRenderingMode(.alwaysTemplate) {
@@ -138,26 +163,31 @@ class RVS_MaskButton_TestHarness_Cards_ViewController: RVS_MaskButton_TestHarnes
 extension RVS_MaskButton_TestHarness_Cards_ViewController {
     /* ################################################################## */
     /**
+     This returns the name of the image to use for the card.
      */
     var currentMainImage: String { "\(Self.verticalImageNames[currentVerticalIndex].imageName)-\(Self.horizontalImageNames[currentHorizontalIndex].imageName)" }
     
     /* ################################################################## */
     /**
+     This returns the name of the image to use for the left button.
      */
     var currentLeftImage: String { Self.horizontalImageNames[previousHorizontalIndex].sfSymbol }
     
     /* ################################################################## */
     /**
+     This returns the name of the image to use for the right button.
      */
     var currentRightImage: String { Self.horizontalImageNames[nextHorizontalIndex].sfSymbol }
 
     /* ################################################################## */
     /**
+     This is the index (0-based) to use for the left button. It cycles around, if at the bottom.
      */
     var previousHorizontalIndex: Int { (1 > currentHorizontalIndex ? Self.horizontalImageNames.count : currentHorizontalIndex) - 1 }
     
     /* ################################################################## */
     /**
+     This is the index (0-based) to use for the right button. It cycles around, if at the end.
      */
     var nextHorizontalIndex: Int {
         let nextIndex = currentHorizontalIndex + 1
@@ -169,21 +199,25 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
     
     /* ################################################################## */
     /**
+     The name of the image to use for the up button.
      */
     var currentUpImage: String { Self.verticalImageNames[nextVerticalIndex].sfSymbol }
     
     /* ################################################################## */
     /**
+     The name of the image to use for the down button.
      */
     var currentDownImage: String { Self.verticalImageNames[previousVerticalIndex].sfSymbol }
 
     /* ################################################################## */
     /**
+     This is the index (0-based) to use for the down button. It cycles around, if at the bottom.
      */
     var previousVerticalIndex: Int { (1 > currentVerticalIndex ? Self.verticalImageNames.count : currentVerticalIndex) - 1 }
     
     /* ################################################################## */
     /**
+     This is the index (0-based) to use for the up button. It cycles around, if at the end.
      */
     var nextVerticalIndex: Int {
         let nextIndex = currentVerticalIndex + 1
@@ -200,6 +234,7 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
 extension RVS_MaskButton_TestHarness_Cards_ViewController {
     /* ################################################################## */
     /**
+     This sets up the images for all the buttons; reflecting the current indexes.
      */
     func setUpButtons() {
         if let cardImage = UIImage(named: currentMainImage) {
@@ -223,12 +258,18 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
             downMaskButton?.setImage(downImage, for: .normal)
         }
         
+        // This sets the corners of the viewer.
+        if let imageContainerView = imageContainerView {
+            imageContainerView.layer.cornerRadius = 30
+        }
+
+        // This makes the buttons in the margin round.
         if let upMaskButton = upMaskButton {
-            upMaskButton.cornerRadius = upMaskButton.bounds.size.height / 2
+            upMaskButton.layer.cornerRadius = upMaskButton.bounds.size.height / 2
         }
         
         if let downMaskButton = downMaskButton {
-            downMaskButton.cornerRadius = downMaskButton.bounds.size.height / 2
+            downMaskButton.layer.cornerRadius = downMaskButton.bounds.size.height / 2
         }
     }
 }
@@ -246,10 +287,13 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
     override func viewWillAppear(_ inIsAnimated: Bool) {
         super.viewWillAppear(inIsAnimated)
         normalReverseSegmentedSwitch?.selectedSegmentIndex = 1
+        // We use white for the top, and nil for the bottom (so it is a solid color).
         startTintSelectorSegmentedSwitch?.selectedSegmentIndex = 1
         endTintSelectorSegmentedSwitch?.selectedSegmentIndex = 0
-        currentVerticalIndex = 1
-        currentHorizontalIndex = 11
+        // Start with the Ace of Spades.
+        currentVerticalIndex = 0
+        currentHorizontalIndex = 0
+
         overrideThisAndSetUpTheScreenAccordingToTheSettings()
     }
     
@@ -285,13 +329,13 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
      - parameter inSegmentedSwitch: The switch instance.
      */
     override func borderSelectionSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
-        leftMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
+        leftMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         leftMaskButton?.forceRedraw()
-        rightMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
+        rightMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         rightMaskButton?.forceRedraw()
-        upMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
+        upMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         upMaskButton?.forceRedraw()
-        downMaskButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
+        downMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         downMaskButton?.forceRedraw()
     }
 
@@ -303,6 +347,7 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
      */
     override func tintSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
         let index = inSegmentedSwitch.selectedSegmentIndex
+        // We use white (instead of the accent color), for this view.
         if 0 < index,
            let color = (1 == index ? .white : UIColor(named: "Tint-\(index)")) {
             if startTintSelectorSegmentedSwitch == inSegmentedSwitch {
@@ -351,32 +396,40 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
 extension RVS_MaskButton_TestHarness_Cards_ViewController {
     /* ################################################################## */
     /**
+     Called when the "previous suite member" button (left bottom) is hit.
+      - parameter: Ignored.
      */
-    @IBAction func leftMaskButtonHit(_ sender: RVS_MaskButton) {
+    @IBAction func leftMaskButtonHit(_: RVS_MaskButton) {
         currentHorizontalIndex = previousHorizontalIndex
         setUpButtons()
     }
 
     /* ################################################################## */
     /**
+     Called when the "next suite member" button (right bottom) is hit.
+      - parameter: Ignored.
      */
-    @IBAction func rightMaskButtonHit(_ sender: RVS_MaskButton) {
+    @IBAction func rightMaskButtonHit(_: RVS_MaskButton) {
         currentHorizontalIndex = nextHorizontalIndex
         setUpButtons()
     }
     
     /* ################################################################## */
     /**
+     Called when the "next suite" button (upper right) is hit.
+      - parameter: Ignored.
      */
-    @IBAction func upMaskButtonHit(_ sender: RVS_MaskButton) {
+    @IBAction func upMaskButtonHit(_: RVS_MaskButton) {
         currentVerticalIndex = nextVerticalIndex
         setUpButtons()
     }
 
     /* ################################################################## */
     /**
+     Called when the "previous suite" button (lower right) is hit.
+      - parameter: Ignored.
      */
-    @IBAction func downMaskButtonHit(_ sender: RVS_MaskButton) {
+    @IBAction func downMaskButtonHit(_: RVS_MaskButton) {
         currentVerticalIndex = previousVerticalIndex
         setUpButtons()
     }

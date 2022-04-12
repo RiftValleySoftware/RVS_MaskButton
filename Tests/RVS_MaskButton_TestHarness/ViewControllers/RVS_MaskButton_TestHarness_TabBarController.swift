@@ -42,6 +42,7 @@ class RVS_MaskButton_TestHarness_TabBarController: UITabBarController {
         let normalTextAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: normalColor]
         let selectedTextAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: selectedColor]
 
+        // This is a personal preference. I like selected tabs to be in label color, and unselected ones, in action color.
         let appearance = UITabBarAppearance()
         appearance.stackedLayoutAppearance.normal.iconColor = normalColor
         appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalTextAttributes

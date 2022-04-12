@@ -167,24 +167,16 @@
 <table><thead>
 <tr>
 <th style="text-align: center">Figure 13: Dragging The UIButton Instance Into Your View Controller</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: center"><img src="img/Figure-13.png" alt="Figure 13"></td>
-</tr>
-</tbody></table>
-
-<p>Once it has been installed, select the new object, and set its class to <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code>, in the Identity Inspector. You may also need to specify the module as <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code>.</p>
-
-<table><thead>
-<tr>
 <th style="text-align: center">Figure 14: Setting the Class Name</th>
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: center"><img src="img/Figure-13.png" alt="Figure 13"></td>
 <td style="text-align: center"><img src="img/Figure-14.png" alt="Figure 14"></td>
 </tr>
 </tbody></table>
+
+<p>Once it has been installed, select the new object, and set its class to <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code>, in the Identity Inspector. You may also need to specify the module as <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code>.</p>
 
 <p>Now, switch to the Attributes Inspector:</p>
 
@@ -198,7 +190,7 @@
 </tr>
 </tbody></table>
 
-<p>We will exmaine each of the highlighted sections, below.</p>
+<p>We will examine each of the highlighted sections, below.</p>
 <h5 id='the-rvs_maskbutton-controls' class='heading'>The RVS_MaskButton Controls</h5>
 
 <p>The top section has the controls unique to the <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code> class:</p>
@@ -257,9 +249,6 @@ This indicates that the control should be rendered, so that the foreground (text
 </tbody></table>
 
 <p>You can set the <code>backgroundColor</code> and <code>tintColor</code> properties, here. It should be noted that the control sets both of these to <code>.clear</code>, at runtime, but does record them, if they are needed to specify colors in the gradient.</p>
-<h5 id='what-about-quot-border-color-quot-and-quot-corner-radius-quot' class='heading'>What About &ldquo;Border Color&rdquo; and &ldquo;Corner Radius&rdquo;?</h5>
-
-<p>These are available in the inspector, because the test harness uses <a href="https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Tests/RVS_MaskButton_TestHarness/ViewControllers/RVS_MaskButton_TestHarness_TabBase_ViewController.swift#L26">a special custom extension of UIView</a>. Normally, these will not be available, and you will need to programmatically change the control&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiview/1622436-layer"><code>layer</code></a> properties. If the <a href="https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth"><code>layer.borderWidth</code></a> property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.</p>
 <h4 id='programmatically' class='heading'>Programmatically</h4>
 
 <p>You create an instance of <code><a href="Classes/RVS_MaskButton.html">RVS_MaskButton</a></code> in exactly the same way that you create an instance of <a href="https://developer.apple.com/documentation/uikit/uibutton"><code>UButton</code></a>:</p>
@@ -268,6 +257,8 @@ let maskButtonFramed = RVS_MaskButton(frame: maskFrame)
 </code></pre>
 
 <p>You can then do things like set up auto-layout, and assign selector actions.</p>
+
+<p>If the <a href="https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth"><code>layer.borderWidth</code></a> property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.</p>
 <h6 id='forcing-a-redraw' class='heading'>Forcing A Redraw</h6>
 
 <p>Whether the control was set up via storyboard or programmatically, it caches images, and may sometimes need to flush the caches, and redraw. This is done via the <a href="https://riftvalleysoftware.github.io/RVS_MaskButton/Classes/RVS_MaskButton.html#/s:14RVS_MaskButtonAAC11forceRedrawyyF"><code>forceRedraw</code></a> method.</p>
@@ -306,7 +297,7 @@ The playing card images that we use in the test harness app, came from <a href="
 
 <p>The code is <a href="https://opensource.org/licenses/MIT">MIT license</a>. Use it as you will. Attribution is appreciated.</p>
 
-<p>The visual resources are copyright/trademark of The Great Rift Valley Software Company, and may not be reused.</p>
+<p>Some of the visual resources are copyright/trademark of The Great Rift Valley Software Company, and may not be reused.</p>
 
           </div>
         </section>

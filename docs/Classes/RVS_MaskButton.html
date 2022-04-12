@@ -73,21 +73,7 @@
 
                 </div>
               </div>
-            <p>This class can be displayed with either the text (or image) filled with a gradient, or the background filled, and the text (or image) &ldquo;cut out&rdquo; of it.
-All behavior is the same as any other UIButton.</p>
-
-<p>This allows you to specify a border, which will be included in the gradient fill.
-If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
-The border will be filled with the gradient, as well as the text or image.</p>
-
-<p>The button can have either text or image (not both). It also only applies to .normal, .highlighted, and .disabled states.
-You may have different text or images for those three states.
-Text is given priority. If text is provided, then the images are ignored (and not displayed).
-Images must be rendererable as template.</p>
-
-<p>This button is quite simple, and &ldquo;old-fashioned,&rdquo; compared to the current buttons.
-It doesn&rsquo;t have support for all the scheming and styling that UIButton has, and should be treated as &ldquo;Default&rdquo; style.</p>
-
+            
           </div>
         </section>
 
@@ -120,6 +106,7 @@ It doesn&rsquo;t have support for all the scheming and styling that UIButton has
                         <p>The starting color for the gradient.
 If not provide, the view backgroundColor is used.
 If that is not provided, then the view tintColor is used.
+If that is not provided, then the super (parent) view tintColor is used.
 If that is not provided, the AccentColor is used.
 If that is not provided, the class will not work.</p>
 
@@ -178,6 +165,7 @@ If that is not provided, the class will not work.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The angle of the gradient, in degrees. 0 (default) is top-to-bottom.
+Zero is top-to-bottom.
 Negative is counter-clockwise, and positive is clockwise.</p>
 
                       </div>
@@ -206,7 +194,8 @@ Negative is counter-clockwise, and positive is clockwise.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If true, then the label is reversed, so the background is &ldquo;cut out&rdquo; of the foreground.</p>
+                        <p>If true, then the label is reversed, so the background is &ldquo;cut out&rdquo; of the foreground.
+If there is a border, that will also be cut out.</p>
 
                       </div>
                       <div class="declaration">
@@ -294,7 +283,7 @@ Negative is counter-clockwise, and positive is clockwise.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forceRedraw</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forceRedraw</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -336,7 +325,7 @@ Some of this comes from <a href="https://stackoverflow.com/questions/42238603/re
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">layoutSubviews</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">layoutSubviews</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -363,7 +352,7 @@ Some of this comes from <a href="https://stackoverflow.com/questions/42238603/re
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">continueTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTouch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">,</span> <span class="n">with</span> <span class="nv">inEvent</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">continueTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTouch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">,</span> <span class="n">with</span> <span class="nv">inEvent</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -425,7 +414,7 @@ Some of this comes from <a href="https://stackoverflow.com/questions/42238603/re
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">endTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTouch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">?,</span> <span class="n">with</span> <span class="nv">inEvent</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">endTracking</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTouch</span><span class="p">:</span> <span class="kt">UITouch</span><span class="p">?,</span> <span class="n">with</span> <span class="nv">inEvent</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -483,7 +472,7 @@ Some of this comes from <a href="https://stackoverflow.com/questions/42238603/re
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">setTitle</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTitle</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">inState</span><span class="p">:</span> <span class="kt">UIControl</span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">setTitle</span><span class="p">(</span><span class="n">_</span> <span class="nv">inTitle</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">inState</span><span class="p">:</span> <span class="kt">UIControl</span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -541,7 +530,7 @@ Some of this comes from <a href="https://stackoverflow.com/questions/42238603/re
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">setImage</span><span class="p">(</span><span class="n">_</span> <span class="nv">inImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">inState</span><span class="p">:</span> <span class="kt">UIControl</span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">setImage</span><span class="p">(</span><span class="n">_</span> <span class="nv">inImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">inState</span><span class="p">:</span> <span class="kt">UIControl</span><span class="o">.</span><span class="kt">State</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

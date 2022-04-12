@@ -54,15 +54,11 @@ Also, all of the examples here, come from [the test harness project](https://git
 
 To begin with, drag a `Button` object from the Objects Palette, into your storyboard, and attach it as you require.
 
-|Figure 13: Dragging The UIButton Instance Into Your View Controller|
-|:----:|
-|![Figure 13](Figure-13.png)|
+|Figure 13: Dragging The UIButton Instance Into Your View Controller|Figure 14: Setting the Class Name|
+|:----:|:----:|
+|![Figure 13](Figure-13.png)|![Figure 14](Figure-14.png)|
 
 Once it has been installed, select the new object, and set its class to `RVS_MaskButton`, in the Identity Inspector. You may also need to specify the module as `RVS_MaskButton`.
-
-|Figure 14: Setting the Class Name|
-|:----:|
-|![Figure 14](Figure-14.png)|
 
 Now, switch to the Attributes Inspector:
 
@@ -70,7 +66,7 @@ Now, switch to the Attributes Inspector:
 |:----:|
 |![Figure 15](Figure-15.png)|
 
-We will exmaine each of the highlighted sections, below.
+We will examine each of the highlighted sections, below.
 
 ##### The RVS_MaskButton Controls
 
@@ -116,10 +112,6 @@ At the bottom of the inspector, you will find the controls for the [`UIView`](ht
 
 You can set the `backgroundColor` and `tintColor` properties, here. It should be noted that the control sets both of these to `.clear`, at runtime, but does record them, if they are needed to specify colors in the gradient.
 
-##### What About "Border Color" and "Corner Radius"?
-
-These are available in the inspector, because the test harness uses [a special custom extension of UIView](https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Tests/RVS_MaskButton_TestHarness/ViewControllers/RVS_MaskButton_TestHarness_TabBase_ViewController.swift#L26). Normally, these will not be available, and you will need to programmatically change the control's [`layer`](https://developer.apple.com/documentation/uikit/uiview/1622436-layer) properties. If the [`layer.borderWidth`](https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth) property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.
-
 #### Programmatically
 
 You create an instance of `RVS_MaskButton` in exactly the same way that you create an instance of [`UButton`](https://developer.apple.com/documentation/uikit/uibutton):
@@ -128,6 +120,8 @@ You create an instance of `RVS_MaskButton` in exactly the same way that you crea
     let maskButtonFramed = RVS_MaskButton(frame: maskFrame)
 
 You can then do things like set up auto-layout, and assign selector actions.
+
+If the [`layer.borderWidth`](https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth) property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.
 
 ###### Forcing A Redraw
 
@@ -163,4 +157,4 @@ The playing card images that we use in the test harness app, came from [Wikimedi
  
 The code is [MIT license](https://opensource.org/licenses/MIT). Use it as you will. Attribution is appreciated.
 
-The visual resources are copyright/trademark of The Great Rift Valley Software Company, and may not be reused.
+Some of the visual resources are copyright/trademark of The Great Rift Valley Software Company, and may not be reused.

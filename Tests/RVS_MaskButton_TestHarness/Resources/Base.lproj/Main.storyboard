@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uCo-79-Gf5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -53,8 +54,17 @@
                                             <constraint firstAttribute="height" constant="30" id="AWL-Kn-Gfv"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="SLUG-BORDER"/>
-                                            <segment title="SLUG-NO-BORDER"/>
+                                            <segment title="" image="nosign" catalog="system"/>
+                                            <segment title="1"/>
+                                            <segment title="2"/>
+                                            <segment title="3"/>
+                                            <segment title="4"/>
+                                            <segment title="5"/>
+                                            <segment title="6"/>
+                                            <segment title="7"/>
+                                            <segment title="8"/>
+                                            <segment title="9"/>
+                                            <segment title="10"/>
                                         </segments>
                                         <color key="selectedSegmentTintColor" name="AccentColor"/>
                                         <connections>
@@ -272,8 +282,17 @@
                                             <constraint firstAttribute="height" constant="30" id="0h7-s5-sI3"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="SLUG-BORDER"/>
-                                            <segment title="SLUG-NO-BORDER"/>
+                                            <segment title="" image="nosign" catalog="system"/>
+                                            <segment title="1"/>
+                                            <segment title="2"/>
+                                            <segment title="3"/>
+                                            <segment title="4"/>
+                                            <segment title="5"/>
+                                            <segment title="6"/>
+                                            <segment title="7"/>
+                                            <segment title="8"/>
+                                            <segment title="9"/>
+                                            <segment title="10"/>
                                         </segments>
                                         <color key="selectedSegmentTintColor" name="AccentColor"/>
                                         <connections>
@@ -394,7 +413,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVP-c3-OtD" userLabel="OverButtons">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVP-c3-OtD" userLabel="OverButtons">
                                         <rect key="frame" x="20" y="472" width="334" height="20"/>
                                         <viewLayoutGuide key="safeArea" id="IN3-cb-kJo"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -402,35 +421,35 @@
                                             <constraint firstAttribute="height" constant="20" id="hd9-ZK-tdm"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oq2-EY-epf" userLabel="TopBar">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oq2-EY-epf" userLabel="TopBar">
                                         <rect key="frame" x="20" y="0.0" width="354" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Tfs-IN-nhi"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uD6-Pz-WTa" userLabel="LeftBar">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uD6-Pz-WTa" userLabel="LeftBar">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="572"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="1lJ-d0-mUg"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AP4-OL-rfJ" userLabel="RightBar-Bottom">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AP4-OL-rfJ" userLabel="RightBar-Bottom">
                                         <rect key="frame" x="354" y="472" width="20" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="7zg-n7-nah"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRd-WS-0ys" userLabel="RightBar-Outer">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRd-WS-0ys" userLabel="RightBar-Outer">
                                         <rect key="frame" x="369" y="20" width="5" height="452"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="750" constant="5" id="Wrb-lz-h0R"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfM-9f-0GM" userLabel="Buttons">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfM-9f-0GM" userLabel="Buttons">
                                         <rect key="frame" x="20" y="492" width="334" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vQ2-sK-oWK">
@@ -490,28 +509,28 @@
                                             <constraint firstAttribute="bottom" secondItem="vQ2-sK-oWK" secondAttribute="bottom" id="gRW-mf-LWz"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfv-hh-Diq" userLabel="BottomBar">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfv-hh-Diq" userLabel="BottomBar">
                                         <rect key="frame" x="20" y="552" width="334" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="tRY-aa-2Xd"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXw-1T-kSy" userLabel="RightBar-TopInside">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXw-1T-kSy" userLabel="RightBar-TopInside">
                                         <rect key="frame" x="329" y="20" width="40" height="176"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="ap4-XF-Lp9"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5TG-gc-be0" userLabel="RightBar-BottomInside">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5TG-gc-be0" userLabel="RightBar-BottomInside">
                                         <rect key="frame" x="329" y="296" width="40" height="176"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="lxe-I7-3QQ"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxe-ch-HyT" userLabel="VButtonContainer">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxe-ch-HyT" userLabel="VButtonContainer">
                                         <rect key="frame" x="329" y="196" width="40" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="VButtons" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-9I-YAw">
@@ -550,7 +569,7 @@
                                             <constraint firstAttribute="bottom" secondItem="1ZL-fQ-xSo" secondAttribute="bottom" id="rAh-jV-LBP"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-66-aTy" userLabel="RightBar-Inner">
+                                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-66-aTy" userLabel="RightBar-Inner">
                                         <rect key="frame" x="324" y="20" width="5" height="452"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -633,6 +652,7 @@
                         <outlet property="downMaskButton" destination="1ZL-fQ-xSo" id="Kza-rt-4NI"/>
                         <outlet property="endTintSelectorSegmentedSwitch" destination="Gif-kp-agX" id="JH7-8Q-3Ux"/>
                         <outlet property="gradientAngleSlider" destination="dCn-8O-joe" id="yt4-jx-KsR"/>
+                        <outlet property="imageContainerView" destination="Ta3-OU-8iW" id="g1J-83-fVj"/>
                         <outlet property="leftMaskButton" destination="ikp-g6-dNZ" id="bVb-Su-DwB"/>
                         <outlet property="normalReverseSegmentedSwitch" destination="kX4-b5-hdL" id="S12-Gf-ZCQ"/>
                         <outlet property="rightMaskButton" destination="dDE-uB-27i" id="evJ-n4-Yms"/>
@@ -691,6 +711,7 @@
         <image name="VButtons" width="120" height="300"/>
         <image name="background-gradient" width="1" height="1000"/>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="nosign" catalog="system" width="128" height="121"/>
         <image name="square.fill" catalog="system" width="128" height="114"/>
         <image name="suit.spade" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">

@@ -26,8 +26,5 @@
 "SLUG-SEG-NORMAL"       =   "Normal";
 "SLUG-SEG-REVERSED"     =   "Reversed";
 
-"SLUG-BORDER"           =   "Border";
-"SLUG-NO-BORDER"        =   "No Border";
-
 "SLUG-FONT-0"           =   "Digital";
-"SLUG-FONT-1"           =   "System";
+"SLUG-FONT-1"           =   "Monospace";

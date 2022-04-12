@@ -33,8 +33,7 @@ fileprivate extension UIImage {
      This allows an image to be resized, given a maximum dimension, and a scale will be determined to meet that dimension.
      If the image is currently smaller than the maximum size, it will not be scaled.
      
-     - parameters:
-         - toMaximumSize: The maximum size, in either the X or Y axis, of the image, in pixels.
+     - parameter toMaximumSize: The maximum size, in either the X or Y axis, of the image, in pixels.
      
      - returns: A new image, with the given dimensions. May be nil, if there was an error.
      */
@@ -48,8 +47,7 @@ fileprivate extension UIImage {
     /**
      This allows an image to be resized, given a maximum dimension, and a scale will be determined to meet that dimension.
      
-     - parameters:
-         - toScaleFactor: The scale of the resulting image, as a multiplier of the current size.
+     - parameter toScaleFactor: The scale of the resulting image, as a multiplier of the current size.
      
      - returns: A new image, with the given scale. May be nil, if there was an error.
      */
@@ -95,8 +93,9 @@ fileprivate extension CGPoint {
     /**
      Rotate this point around a given point, by an angle given in degrees.
      
-     - parameter around: Another point, that is the "fulcrum" of the rotation.
-     - parameter byDegrees: The rotation angle, in degrees. 0 is no change. - is counter-clockwise, + is clockwise.
+     - parameters:
+        - around: Another point, that is the "fulcrum" of the rotation.
+        - byDegrees: The rotation angle, in degrees. 0 is no change. - is counter-clockwise, + is clockwise.
      - returns: The transformed point.
      */
     func _rotated(around inCenter: CGPoint, byDegrees inDegrees: CGFloat) -> CGPoint { _rotated(around: inCenter, byRadians: (inDegrees * .pi) / 180) }
@@ -106,8 +105,9 @@ fileprivate extension CGPoint {
      This was inspired by [this SO answer](https://stackoverflow.com/a/35683523/879365).
      Rotate this point around a given point, by an angle given in radians.
      
-     - parameter around: Another point, that is the "fulcrum" of the rotation.
-     - parameter byRadians: The rotation angle, in radians. 0 is no change. - is counter-clockwise, + is clockwise.
+     - parameters:
+        - around: Another point, that is the "fulcrum" of the rotation.
+        - byDegrees: The rotation angle, in radians. 0 is no change. - is counter-clockwise, + is clockwise.
      - returns: The transformed point.
      */
     func _rotated(around inCenter: CGPoint, byRadians inRadians: CGFloat) -> CGPoint {
@@ -130,8 +130,10 @@ fileprivate extension CGPoint {
  All behavior is the same as any other UIButton.
  
  This allows you to specify a border, which will be included in the gradient fill.
- If the borderWidth value is anything greater than 0, there will be a border, with corners specified by cornerRadius.
- The border will be filled with the gradient, as well as the text or image.
+ You should set [the `layer.borderWidth` property](https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth), in order to do this.
+ If the `borderWidth` value is anything greater than 0, there will be a border, with corners specified by
+ [`layer.cornerRadius`](https://developer.apple.com/documentation/quartzcore/calayer/1410818-cornerradius).
+ The border will be filled with the gradient, as well as the text or image (or excluded, if `reversed` is true).
  
  The button can have either text or image (not both). It also only applies to .normal, .highlighted, and .disabled states.
  You may have different text or images for those three states.
@@ -141,6 +143,7 @@ fileprivate extension CGPoint {
  This button is quite simple, and "old-fashioned," compared to the current buttons.
  It doesn't have support for all the scheming and styling that UIButton has, and should be treated as "Default" style.
  */
+#if os(iOS) // This prevents the IB errors from showing up, under SPM (From SO Answer: https://stackoverflow.com/a/66334661/879365).
 @IBDesignable
 open class RVS_MaskButton: UIButton {
     /* ################################################################################################################################## */
@@ -149,6 +152,7 @@ open class RVS_MaskButton: UIButton {
     /* ################################################################## */
     /**
      The transparency coefficient to use, if the control is highlighted.
+     This is what the control "dims" to, when touched.
      */
     private static var _highlightAlpha = CGFloat(0.25)
     
@@ -157,37 +161,41 @@ open class RVS_MaskButton: UIButton {
     /* ################################################################################################################################## */
     /* ################################################################## */
     /**
-     This is how many display units to add to either side of the label, to ensure padding.
+     This is how many blank display units to add to either side of the label, to ensure padding.
      */
     private static let _horizontalLabelPaddingInDisplayUnits = CGFloat(10)
     
     /* ################################################################## */
     /**
-     This caches the original alpha.
+     This caches the original alpha value. It is set at load time.
      */
     private var _originalAlpha = CGFloat(0)
     
     /* ################################################################## */
     /**
-     This caches the original background color.
+     This caches the original background color. It is set at load time.
      */
     private var _originalBackgroundColor: UIColor?
     
     /* ################################################################## */
     /**
-     This caches the original tint color.
+     This caches the original tint color. It is set at load time.
      */
     private var _originalTintColor: UIColor?
 
     /* ################################################################## */
     /**
-     This caches the gradient layer.
+     This caches the gradient layer. This is set when the gradient is redrawn.
+     If this is not-nil, then it will be fetched, instead of redrawing the gradient.
+     In order to force the gradient to redraw, set this to nil.
      */
     private var _gradientLayer: CAGradientLayer?
 
     /* ################################################################## */
     /**
      This caches the mask layer.
+     If this is not-nil, then it will be fetched, instead of redrawing the mask.
+     In order to force the mask to redraw, set this to nil.
      */
     private var _maskLayer: CALayer?
     
@@ -199,6 +207,7 @@ open class RVS_MaskButton: UIButton {
      The starting color for the gradient.
      If not provide, the view backgroundColor is used.
      If that is not provided, then the view tintColor is used.
+     If that is not provided, then the super (parent) view tintColor is used.
      If that is not provided, the AccentColor is used.
      If that is not provided, the class will not work.
      */
@@ -223,6 +232,7 @@ open class RVS_MaskButton: UIButton {
     /* ################################################################## */
     /**
      The angle of the gradient, in degrees. 0 (default) is top-to-bottom.
+     Zero is top-to-bottom.
      Negative is counter-clockwise, and positive is clockwise.
      */
     @IBInspectable public var gradientAngleInDegrees: CGFloat = 0 {
@@ -235,6 +245,7 @@ open class RVS_MaskButton: UIButton {
     /* ################################################################## */
     /**
      If true, then the label is reversed, so the background is "cut out" of the foreground.
+     If there is a border, that will also be cut out.
      */
     @IBInspectable public var reversed: Bool = false {
         didSet {
@@ -245,20 +256,20 @@ open class RVS_MaskButton: UIButton {
 }
 
 /* ###################################################################################################################################### */
-// MARK: Internal Computed Properties
+// MARK: Private Computed Properties
 /* ###################################################################################################################################### */
-extension RVS_MaskButton {
+private extension RVS_MaskButton {
     /* ################################################################## */
     /**
      This returns the background gradient layer, rendering it, if necessary.
      */
-    var gradientLayer: CALayer? { makeGradientLayer() }
+    var _fetchGradientLayer: CALayer? { _makeGradientLayer() }
     
     /* ################################################################## */
     /**
      This returns the mask layer, rendering it, if necessary.
      */
-    var maskLayer: CALayer? { makeMaskLayer() }
+    var _fetchMaskLayer: CALayer? { _makeMaskLayer() }
 }
 
 /* ###################################################################################################################################### */
@@ -280,14 +291,15 @@ public extension RVS_MaskButton {
 }
 
 /* ###################################################################################################################################### */
-// MARK: Internal Instance Methods
+// MARK: Private Instance Methods
 /* ###################################################################################################################################### */
-extension RVS_MaskButton {
+private extension RVS_MaskButton {
     /* ################################################################## */
     /**
      This creates the gradient layer, using our specified start and stop colors.
+     If the gradient cache is available, we immediately return that, instead.
      */
-    func makeGradientLayer() -> CALayer? {
+    func _makeGradientLayer() -> CALayer? {
         guard nil == _gradientLayer else { return _gradientLayer }
         
         // We try to get whatever the user explicitly set. If not that, then a background color, then the tint color (both ours and super), and, finally, the accent color. If not that, we give up.
@@ -308,8 +320,9 @@ extension RVS_MaskButton {
     /* ################################################################## */
     /**
      This uses our text or image to generate a mask layer.
+     If the mask cache is available, we immediately return that, instead.
      */
-    func makeMaskLayer() -> CALayer? {
+    func _makeMaskLayer() -> CALayer? {
         guard nil == _maskLayer else { return _maskLayer }
         
         // These colors map to a transparency mask. White is opaque. Black is transparent.
@@ -318,7 +331,7 @@ extension RVS_MaskButton {
         
         // we first see if we have text.
         // If so, we then determine the appropriate font size.
-        if let text = title(for: state),
+        if let text = title(for: state) ?? title(for: .normal),
            var dynFont = titleLabel?.font {
             let minimumFontSizeInPoints = (dynFont.pointSize * 0.25)
             let scalingStep = 0.0125
@@ -336,14 +349,14 @@ extension RVS_MaskButton {
             titleLabel?.font = dynFont
             
             // If we have text, we do not have images.
-            setImage(nil, for: .normal)
-            setImage(nil, for: .highlighted)
-            setImage(nil, for: .disabled)
+            super.setImage(nil, for: .normal)
+            super.setImage(nil, for: .highlighted)
+            super.setImage(nil, for: .disabled)
         }
         
         var subLayer: CALayer?
         
-        if let text = title(for: state),
+        if let text = title(for: state) ?? title(for: .normal),
            let titleLabel = titleLabel,
            let font = buttonFont {
             let textLayer = CATextLayer()
@@ -359,7 +372,9 @@ extension RVS_MaskButton {
             textLayer.foregroundColor = foreColor
             subLayer = textLayer
         // Images are always template.
-        } else if let image = image(for: state)?.withRenderingMode(.alwaysTemplate).withTintColor(UIColor(cgColor: foreColor))._resized(toMaximumSize: max(bounds.size.width, bounds.size.height)) {
+        } else if let image = (image(for: state) ?? image(for: .normal))?.withRenderingMode(.alwaysTemplate)
+            .withTintColor(UIColor(cgColor: foreColor))
+            ._resized(toMaximumSize: max(bounds.size.width, bounds.size.height)) {
             subLayer = CALayer()
             subLayer?.frame = CGRect(origin: CGPoint(x: (bounds.size.width - image.size.width) / 2, y: (bounds.size.height - image.size.height) / 2), size: image.size)
             subLayer?.contents = image.cgImage
@@ -389,12 +404,12 @@ extension RVS_MaskButton {
 /* ###################################################################################################################################### */
 // MARK: Public Instance Methods
 /* ###################################################################################################################################### */
-extension RVS_MaskButton {
+public extension RVS_MaskButton {
     /* ################################################################## */
     /**
      This is used to flush the caches, and redraw the button.
      */
-    public func forceRedraw() {
+    func forceRedraw() {
         _gradientLayer = nil
         _maskLayer = nil
         setNeedsLayout()
@@ -404,16 +419,17 @@ extension RVS_MaskButton {
 /* ###################################################################################################################################### */
 // MARK: Public Base Class Overrides
 /* ###################################################################################################################################### */
-extension RVS_MaskButton {
+public extension RVS_MaskButton {
     /* ################################################################## */
     /**
      We call this, when it's time to lay out the control.
      We subvert the standard rendering, and replace it with our own rendering.
      Some of this comes from [this SO answer](https://stackoverflow.com/questions/42238603/reverse-a-calayer-mask/42238699#42238699)
      */
-    override public func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
-
+        
+        // First time through, we keep these values.
         if 0 == _originalAlpha,
            0 < alpha {
             _originalAlpha = alpha
@@ -431,15 +447,15 @@ extension RVS_MaskButton {
 
         // This sets up the baseline.
         layer.borderColor = UIColor.clear.cgColor
-        titleLabel?.textColor = .clear
+        titleLabel?.isHidden = true
         _gradientLayer?.removeFromSuperlayer()
         layer.mask = nil
         
         // Create a mask, and apply that to our background gradient.
-        if let gradientLayer = gradientLayer,
-           let initialMaskLayer = maskLayer,
+        if let _fetchGradientLayer = _fetchGradientLayer,
+           let initialMaskLayer = _fetchMaskLayer,
            let filter = CIFilter(name: "CIMaskToAlpha") {
-            layer.addSublayer(gradientLayer)
+            layer.addSublayer(_fetchGradientLayer)
             let renderedCoreImage = CIImage(image: UIGraphicsImageRenderer(size: bounds.size).image { initialMaskLayer.render(in: $0.cgContext) })
             filter.setValue(renderedCoreImage, forKey: "inputImage")
             if let outputImage = filter.outputImage {
@@ -462,7 +478,7 @@ extension RVS_MaskButton {
      - parameter with: The event that spawned the touch.
      - returns: True, if the touch is to continue.
      */
-    override public func continueTracking(_ inTouch: UITouch, with inEvent: UIEvent?) -> Bool {
+    override func continueTracking(_ inTouch: UITouch, with inEvent: UIEvent?) -> Bool {
         alpha = isHighlighted ? _originalAlpha * Self._highlightAlpha : _originalAlpha
         return super.continueTracking(inTouch, with: inEvent)
     }
@@ -474,7 +490,7 @@ extension RVS_MaskButton {
      - parameter inTouch: The touch being tracked.
      - parameter with: The event that spawned the touch.
      */
-    override public func endTracking(_ inTouch: UITouch?, with inEvent: UIEvent?) {
+    override func endTracking(_ inTouch: UITouch?, with inEvent: UIEvent?) {
         alpha = _originalAlpha
         super.endTracking(inTouch, with: inEvent)
     }
@@ -486,7 +502,7 @@ extension RVS_MaskButton {
      - parameter inTitle: The new text.
      - parameter for: The state, to which the text applies.
      */
-    override public func setTitle(_ inTitle: String?, for inState: UIControl.State) {
+    override func setTitle(_ inTitle: String?, for inState: UIControl.State) {
         _maskLayer = nil
         super.setTitle(inTitle, for: inState)
         setNeedsLayout()
@@ -499,9 +515,10 @@ extension RVS_MaskButton {
      - parameter inImage: The new image. It should be a template image.
      - parameter for: The state, to which the text applies.
      */
-    override public func setImage(_ inImage: UIImage?, for inState: UIControl.State) {
+    override func setImage(_ inImage: UIImage?, for inState: UIControl.State) {
         _maskLayer = nil
         super.setImage(inImage, for: inState)
         setNeedsLayout()
     }
 }
+#endif

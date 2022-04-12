@@ -29,6 +29,8 @@ import RVS_BasicGCDTimer
 /* ###################################################################################################################################### */
 /**
  This tab presents the control as a digital clock.
+ 
+ The button is a text button, and can be switched between a "faux LED" font, and a standard mono font.
  */
 class RVS_MaskButton_TestHarness_Clock_ViewController: RVS_MaskButton_TestHarness_TabBase_ViewController {
     /* ################################################################################################################################## */
@@ -78,6 +80,7 @@ class RVS_MaskButton_TestHarness_Clock_ViewController: RVS_MaskButton_TestHarnes
     /* ################################################################## */
     /**
      This sets the various controls up to our initial default.
+     This override needs to be in the main declaration (not an extension).
      */
     override func overrideThisAndSetUpTheScreenAccordingToTheSettings() {
         super.overrideThisAndSetUpTheScreenAccordingToTheSettings()
@@ -105,6 +108,9 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
                 }
             }
         }
+        
+        // Give the button rounded corners.
+        digitalClockButton?.layer.cornerRadius = 12
     }
     
     /* ################################################################## */
@@ -128,7 +134,7 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
         if let fontSelectorSegmentedSwitch = fontSelectorSegmentedSwitch {
             fontSelectorSegmentedSwitch.selectedSegmentIndex = 0
         }
-        
+
         overrideThisAndSetUpTheScreenAccordingToTheSettings()
     }
 
@@ -142,12 +148,12 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
         super.viewDidAppear(inIsAnimated)
         
         timerInstance = RVS_BasicGCDTimer(timeIntervalInSeconds: 1.0, delegate: self, leewayInMilliseconds: 100, onlyFireOnce: false, isWallTime: true)
-
-        timerInstance?.isRunning = true
         
         if let timerInstance = timerInstance {
             basicGCDTimerCallback(timerInstance)
         }
+
+        timerInstance?.isRunning = true
     }
     
     /* ################################################################## */
@@ -178,7 +184,7 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
      - parameter inSegmentedSwitch: The switch instance.
      */
     override func borderSelectionSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
-        digitalClockButton?.borderWidth = 0 == inSegmentedSwitch.selectedSegmentIndex ? Self.defaultBorderWidthInDisplayUnits : 0
+        digitalClockButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         digitalClockButton?.forceRedraw()
     }
 
@@ -190,6 +196,7 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
      */
     override func tintSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
         let index = inSegmentedSwitch.selectedSegmentIndex
+        // We use the accent color for segment 1.
         if let color = 1 == index ? view?.tintColor : UIColor(named: "Tint-\(index)") {
             if startTintSelectorSegmentedSwitch == inSegmentedSwitch {
                 digitalClockButton?.gradientStartColor = color
