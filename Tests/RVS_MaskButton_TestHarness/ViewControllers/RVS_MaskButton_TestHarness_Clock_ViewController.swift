@@ -181,10 +181,12 @@ extension RVS_MaskButton_TestHarness_Clock_ViewController {
     /**
      Called when the segmented switch, controlling the border, is hit.
      
+     We determine the thickness of the border, quite simply, by casting the segment index to a CGFloat.
+
      - parameter inSegmentedSwitch: The switch instance.
      */
     override func borderSelectionSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
-        digitalClockButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
+        digitalClockButton?.borderWidthInDisplayUnits = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         digitalClockButton?.forceRedraw()
     }
 

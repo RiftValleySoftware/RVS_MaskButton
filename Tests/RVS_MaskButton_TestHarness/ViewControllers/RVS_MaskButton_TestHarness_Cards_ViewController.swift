@@ -326,16 +326,18 @@ extension RVS_MaskButton_TestHarness_Cards_ViewController {
     /**
      Called when the segmented switch, controlling the border, is hit.
      
+     We determine the thickness of the border, quite simply, by casting the segment index to a CGFloat.
+     
      - parameter inSegmentedSwitch: The switch instance.
      */
     override func borderSelectionSegmentedSwitchHit(_ inSegmentedSwitch: UISegmentedControl) {
-        leftMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
+        leftMaskButton?.borderWidthInDisplayUnits = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         leftMaskButton?.forceRedraw()
-        rightMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
+        rightMaskButton?.borderWidthInDisplayUnits = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         rightMaskButton?.forceRedraw()
-        upMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
+        upMaskButton?.borderWidthInDisplayUnits = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         upMaskButton?.forceRedraw()
-        downMaskButton?.layer.borderWidth = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
+        downMaskButton?.borderWidthInDisplayUnits = CGFloat(inSegmentedSwitch.selectedSegmentIndex)
         downMaskButton?.forceRedraw()
     }
 

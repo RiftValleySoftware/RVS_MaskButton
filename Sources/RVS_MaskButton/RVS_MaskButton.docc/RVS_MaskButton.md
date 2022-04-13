@@ -6,6 +6,16 @@ A Special UIButton Variant That Allows "See-Through" Masking.
 
 This class implements an extremely basic [`UIButton`](https://developer.apple.com/documentation/uikit/uibutton)-subclassed button (so it can be used in place of UIButton) that provides a gradient background, and the ability to either mask it inside of text (you can use whetever font you want), or inside of a template image, or, alternatively, to fill the button with the gradient, and "punch out" the text and/or image. The gradient is a basic linear gradient between two colors, and the angle of the gradient can be changed. If just one color is defined, then the fill is a solid color. 
 
+## What Problem Does This Solve?
+
+This class was designed for a specific use case, in a larger application. We wanted to have a large, banner-style button, using a particular font, that was filled with a gradient.
+
+The text in the button would change, to reflect an application status, so an image was out of the question.
+
+## What does it look like?
+
+Here is a small sample of what the class can do (From [the test harness app](https://github.com/RiftValleySoftware/RVS_MaskButton/tree/master/Tests/RVS_MaskButton_TestHarness)):
+
 |Figure 1: The Basic Text Button|Figure 2: Reversed|
 |:----:|:----:|
 |![Figure 1](Figure-01.png)|![Figure 2](Figure-02.png)|

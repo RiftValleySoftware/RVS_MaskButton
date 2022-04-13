@@ -19,10 +19,13 @@
 
  The Great Rift Valley Software Company: https://riftvalleysoftware.com
  
- Version 1.0.1
+ Version 1.0.2
 */
 
 import UIKit
+
+// MARK: -
+// MARK: - Internal Extension Utilities -
 
 /* ###################################################################################################################################### */
 // MARK: - Private UIImage Extension For Resizing -
@@ -122,6 +125,9 @@ fileprivate extension CGPoint {
     }
 }
 
+// MARK: -
+// MARK: - Main Implementation -
+
 /* ###################################################################################################################################### */
 // MARK: - A Special Button Class That Can Mask A Gradient -
 /* ###################################################################################################################################### */
@@ -156,15 +162,15 @@ open class RVS_MaskButton: UIButton {
      */
     private static var _highlightAlpha = CGFloat(0.25)
     
-    /* ################################################################################################################################## */
-    // MARK: Private Property
-    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      This is how many blank display units to add to either side of the label, to ensure padding.
      */
     private static let _horizontalLabelPaddingInDisplayUnits = CGFloat(10)
     
+    /* ################################################################################################################################## */
+    // MARK: Private Cache Properties
+    /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      This caches the original alpha value. It is set at load time.
@@ -284,6 +290,19 @@ public extension RVS_MaskButton {
         get { titleLabel?.font }
         set {
             titleLabel?.font = newValue
+            _maskLayer = nil
+            setNeedsLayout()
+        }
+    }
+    
+    /* ################################################################## */
+    /**
+     This allows access to the border width.
+     */
+    @IBInspectable var borderWidthInDisplayUnits: CGFloat {
+        get { layer.borderWidth }
+        set {
+            layer.borderWidth = newValue
             _maskLayer = nil
             setNeedsLayout()
         }
