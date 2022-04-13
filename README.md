@@ -99,6 +99,9 @@ The top section has the controls unique to the `RVS_MaskButton` class:
 - `Reversed`
     This indicates that the control should be rendered, so that the foreground (text or image) is "punched out" of the background, which will be filled with the gradient. If it is false (default), then only the text/image will be filled with the gradient.
     
+- `Border Width In Display Units`
+    This allows you to specify a border width (default is 0, or no border).
+    
 ##### The UButton Controls
 
 |Figure 17: The UIButton Controls|

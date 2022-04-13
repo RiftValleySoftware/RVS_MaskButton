@@ -1,3 +1,7 @@
+**1.1.1** *April 13, 2022*
+
+- Documentation Improvements
+
 **1.1.0** *April 13, 2022*
 
 - Documentation Improvements
