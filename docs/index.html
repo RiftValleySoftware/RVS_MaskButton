@@ -75,7 +75,7 @@
 
 <p>This class was designed for a specific use case, in a larger application. We wanted to have a large, banner-style button, using a particular font, that was filled with a gradient.</p>
 
-<p>The text in the button would change, to reflect an application status, so an image was out of the question.</p>
+<p>The text in the button would change, to reflect an application status, so an image was out of the question. This makes it absurdly simple to have a gradient-based text or template image display, with a transparent background.</p>
 <h2 id='what-does-it-look-like' class='heading'>What does it look like?</h2>
 
 <p>Here is a small sample of what the class can do (From <a href="https://github.com/RiftValleySoftware/RVS_MaskButton/tree/master/Tests/RVS_MaskButton_TestHarness">the test harness app</a>):</p>
@@ -267,6 +267,8 @@ let maskButtonFramed = RVS_MaskButton(frame: maskFrame)
 <p>You can then do things like set up auto-layout, and assign selector actions.</p>
 
 <p>If the <a href="https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth"><code>layer.borderWidth</code></a> property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.</p>
+
+<p>You can access this property, via the inspectable <a href="https://riftvalleysoftware.github.io/RVS_MaskButton/Classes/RVS_MaskButton.html#/c:@CM@RVS_MaskButton@objc%40cs"><code>borderWidthInDisplayUnits</code></a> property. Setting this changes the width of the border. Setting it to 0 (default), means no border.</p>
 <h6 id='forcing-a-redraw' class='heading'>Forcing A Redraw</h6>
 
 <p>Whether the control was set up via storyboard or programmatically, it caches images, and may sometimes need to flush the caches, and redraw. This is done via the <a href="https://riftvalleysoftware.github.io/RVS_MaskButton/Classes/RVS_MaskButton.html#/s:14RVS_MaskButtonAAC11forceRedrawyyF"><code>forceRedraw</code></a> method.</p>

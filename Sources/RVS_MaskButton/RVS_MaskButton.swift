@@ -19,7 +19,7 @@
 
  The Great Rift Valley Software Company: https://riftvalleysoftware.com
  
- Version 1.0.2
+ Version 1.1.0
 */
 
 import UIKit
@@ -204,20 +204,15 @@ open class RVS_MaskButton: UIButton {
      In order to force the mask to redraw, set this to nil.
      */
     private var _maskLayer: CALayer?
-    
+
     /* ################################################################################################################################## */
-    // MARK: Public IB Properties
+    // MARK: Private Stored Properties
     /* ################################################################################################################################## */
     /* ################################################################## */
     /**
      The starting color for the gradient.
-     If not provide, the view backgroundColor is used.
-     If that is not provided, then the view tintColor is used.
-     If that is not provided, then the super (parent) view tintColor is used.
-     If that is not provided, the AccentColor is used.
-     If that is not provided, the class will not work.
      */
-    @IBInspectable public var gradientStartColor: UIColor? {
+    private var _gradientStartColor: UIColor? {
         didSet {
             _gradientLayer = nil
             setNeedsLayout()
@@ -226,9 +221,9 @@ open class RVS_MaskButton: UIButton {
 
     /* ################################################################## */
     /**
-     The ending color. If not provided, then the starting color is used.
+     The ending color.
      */
-    @IBInspectable public var gradientEndColor: UIColor? {
+    private var _gradientEndColor: UIColor? {
         didSet {
             _gradientLayer = nil
             setNeedsLayout()
@@ -237,11 +232,9 @@ open class RVS_MaskButton: UIButton {
 
     /* ################################################################## */
     /**
-     The angle of the gradient, in degrees. 0 (default) is top-to-bottom.
-     Zero is top-to-bottom.
-     Negative is counter-clockwise, and positive is clockwise.
+     The angle of the gradient, in degrees.
      */
-    @IBInspectable public var gradientAngleInDegrees: CGFloat = 0 {
+    private var _gradientAngleInDegrees: CGFloat = 0 {
         didSet {
             _gradientLayer = nil
             setNeedsLayout()
@@ -251,9 +244,8 @@ open class RVS_MaskButton: UIButton {
     /* ################################################################## */
     /**
      If true, then the label is reversed, so the background is "cut out" of the foreground.
-     If there is a border, that will also be cut out.
      */
-    @IBInspectable public var reversed: Bool = false {
+    private var _reversed: Bool = false {
         didSet {
             _maskLayer = nil
             setNeedsLayout()
@@ -276,37 +268,6 @@ private extension RVS_MaskButton {
      This returns the mask layer, rendering it, if necessary.
      */
     var _fetchMaskLayer: CALayer? { _makeMaskLayer() }
-}
-
-/* ###################################################################################################################################### */
-// MARK: Public Computed Properties
-/* ###################################################################################################################################### */
-public extension RVS_MaskButton {
-    /* ################################################################## */
-    /**
-     This allows you to set the font of the button. This is not inspectable, and must be set programmatically.
-     */
-    var buttonFont: UIFont? {
-        get { titleLabel?.font }
-        set {
-            titleLabel?.font = newValue
-            _maskLayer = nil
-            setNeedsLayout()
-        }
-    }
-    
-    /* ################################################################## */
-    /**
-     This allows access to the border width.
-     */
-    @IBInspectable var borderWidthInDisplayUnits: CGFloat {
-        get { layer.borderWidth }
-        set {
-            layer.borderWidth = newValue
-            _maskLayer = nil
-            setNeedsLayout()
-        }
-    }
 }
 
 /* ###################################################################################################################################### */
@@ -417,6 +378,81 @@ private extension RVS_MaskButton {
         }
         
         return _maskLayer
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Public Computed Properties
+/* ###################################################################################################################################### */
+public extension RVS_MaskButton {
+    /* ################################################################## */
+    /**
+     This allows you to set the font of the button. This is not inspectable, and must be set programmatically.
+     */
+    var buttonFont: UIFont? {
+        get { titleLabel?.font }
+        set {
+            titleLabel?.font = newValue
+            _maskLayer = nil
+            setNeedsLayout()
+        }
+    }
+    
+    /* ################################################################## */
+    /**
+     The starting color for the gradient.
+     If not provided, the view backgroundColor is used.
+     If that is not provided, then the view tintColor is used.
+     If that is not provided, then the super (parent) view tintColor is used.
+     If that is not provided, the AccentColor is used.
+     If that is not provided, the class will not work.
+     */
+    @IBInspectable var gradientStartColor: UIColor? {
+        get { _gradientStartColor }
+        set { _gradientStartColor = newValue }
+    }
+
+    /* ################################################################## */
+    /**
+     The ending color. If not provided, then the starting color is used.
+     */
+    @IBInspectable var gradientEndColor: UIColor? {
+        get { _gradientEndColor }
+        set { _gradientEndColor = newValue }
+    }
+
+    /* ################################################################## */
+    /**
+     The angle of the gradient, in degrees. 0 (default) is top-to-bottom.
+     Zero is top-to-bottom.
+     Negative is counter-clockwise, and positive is clockwise.
+     */
+    @IBInspectable var gradientAngleInDegrees: CGFloat {
+        get { _gradientAngleInDegrees }
+        set { _gradientAngleInDegrees = newValue }
+    }
+
+    /* ################################################################## */
+    /**
+     If true, then the label is reversed, so the background is "cut out" of the foreground.
+     If there is a border, that will also be cut out.
+     */
+    @IBInspectable var reversed: Bool {
+        get { _reversed }
+        set { _reversed = newValue }
+    }
+
+    /* ################################################################## */
+    /**
+     This allows access to the border width.
+     */
+    @IBInspectable var borderWidthInDisplayUnits: CGFloat {
+        get { layer.borderWidth }
+        set {
+            layer.borderWidth = newValue
+            _maskLayer = nil
+            setNeedsLayout()
+        }
     }
 }
 

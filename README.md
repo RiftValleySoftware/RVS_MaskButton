@@ -11,7 +11,7 @@ This class implements an extremely basic [`UIButton`](https://developer.apple.co
 
 This class was designed for a specific use case, in a larger application. We wanted to have a large, banner-style button, using a particular font, that was filled with a gradient.
 
-The text in the button would change, to reflect an application status, so an image was out of the question.
+The text in the button would change, to reflect an application status, so an image was out of the question. This makes it absurdly simple to have a gradient-based text or template image display, with a transparent background.
 
 ## What does it look like?
 
@@ -133,6 +133,8 @@ You create an instance of `RVS_MaskButton` in exactly the same way that you crea
 You can then do things like set up auto-layout, and assign selector actions.
 
 If the [`layer.borderWidth`](https://developer.apple.com/documentation/quartzcore/calayer/1410917-borderwidth) property is set to nonzero (default is zero), then a border will be drawn around the outside of the control, of the thickness specified by the value of the property.
+
+You can access this property, via the inspectable [`borderWidthInDisplayUnits`](https://riftvalleysoftware.github.io/RVS_MaskButton/Classes/RVS_MaskButton.html#/c:@CM@RVS_MaskButton@objc%40cs) property. Setting this changes the width of the border. Setting it to 0 (default), means no border.
 
 ###### Forcing A Redraw
 
