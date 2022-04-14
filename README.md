@@ -141,13 +141,13 @@ You can access this property, via the inspectable [`borderWidthInDisplayUnits`](
 
 ###### Forcing A Redraw
 
-Whether the control was set up via storyboard or programmatically, it caches images, and may sometimes need to flush the caches, and redraw. This is done via the [`forceRedraw`](https://riftvalleysoftware.github.io/RVS_MaskButton/Classes/RVS_MaskButton.html#/s:14RVS_MaskButtonAAC11forceRedrawyyF) method.
+Whether the control was set up via storyboard or programmatically, it caches images, and may sometimes need to flush the caches, and redraw. This is done via the [`forceRedraw()`](https://riftvalleysoftware.github.io/RVS_MaskButton/Classes/RVS_MaskButton.html#/s:14RVS_MaskButtonAAC11forceRedrawyyF) method.
 
 It is suggested that you call this method whenever the view controller executes its [`viewWillLayoutSubviews()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621437-viewwilllayoutsubviews) method.
 
 ###### A Note On Programmatically Setting the Font
 
-Apple restricts access to the UIButton's `font` property (the one that is set from the Attributes Inspector), so we declare [a separate accessor, called `bttonFont: UIFont?`](https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Sources/RVS_MaskButton/RVS_MaskButton.swift#L267). Use this to prgrammatically set the font.
+Apple restricts access to the UIButton's `font` property (the one that is set from the Attributes Inspector), so we declare [a separate accessor, called `buttonFont: UIFont?`](https://github.com/RiftValleySoftware/RVS_MaskButton/blob/master/Sources/RVS_MaskButton/RVS_MaskButton.swift#L267). Use this to prgrammatically set the font.
 
 ## The Test Harness App
 
