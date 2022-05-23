@@ -1,3 +1,7 @@
+**1.1.3** *May 23, 2022*
+
+- Upped the versions of both dependencies. No other changes.
+
 **1.1.2** *May 13, 2022*
 
 - Upped the version of the `RVS_Generic_Swift_Toolbox` test harness dependency. No changes to the module.
