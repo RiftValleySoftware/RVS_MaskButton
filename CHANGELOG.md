@@ -1,3 +1,8 @@
+**1.2.0** *May 31, 2022*
+
+- Removed the "dash-notation."
+- Updated the dependencies and to the latest tools.
+
 **1.1.3** *May 23, 2022*
 
 - Upped the versions of both dependencies. No other changes.

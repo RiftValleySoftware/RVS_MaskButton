@@ -27,7 +27,7 @@ let package = Package(
         .iOS(.v14)
     ],
     products: [
-        .library(name: "RVS-MaskButton",
+        .library(name: "RVS_MaskButton",
                  targets: ["RVS_MaskButton"]
         )
     ],
