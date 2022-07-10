@@ -1,3 +1,7 @@
+**1.2.1** *July 10, 2022*
+
+- Just updated a dependency. No API changes.
+
 **1.2.0** *May 31, 2022*
 
 - Removed the "dash-notation."
