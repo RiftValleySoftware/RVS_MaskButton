@@ -527,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riftvalleysoftware.RVS-MaskButton-TestHarness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -558,7 +558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riftvalleysoftware.RVS-MaskButton-TestHarness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -586,7 +586,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riftvalleysoftware.RVS-MaskButton";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -616,7 +616,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riftvalleysoftware.RVS-MaskButton";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -673,7 +673,7 @@
 			repositoryURL = "https://github.com/RiftValleySoftware/RVS_BasicGCDTimer.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.0;
+				minimumVersion = 1.5.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
