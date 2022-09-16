@@ -15,11 +15,11 @@
 		D46197F12802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Cards_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46197EA2802F7F200EC71A9 /* RVS_MaskButton_TestHarness_Cards_ViewController.swift */; };
 		D4902FC22805AB8000D4DD3D /* RVS_MaskButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4902FB02805AA9F00D4DD3D /* RVS_MaskButton.framework */; platformFilter = ios; };
 		D4902FC32805AB8000D4DD3D /* RVS_MaskButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4902FB02805AA9F00D4DD3D /* RVS_MaskButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D4995B352846E89500E468C1 /* RVS_Generic_Swift_Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = D4995B342846E89500E468C1 /* RVS_Generic_Swift_Toolbox */; };
-		D4995B372846E89500E468C1 /* RVS_BasicGCDTimer in Frameworks */ = {isa = PBXBuildFile; productRef = D4995B362846E89500E468C1 /* RVS_BasicGCDTimer */; };
 		D4B141B62803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B141B52803000D00E9C7E2 /* RVS_MaskButton_TestHarness_TabBarController.swift */; };
 		D4B141B82803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B141B72803009C00E9C7E2 /* RVS_MaskButton_TestHarness_Clock_ViewController.swift */; };
 		D4B141BB2803031900E9C7E2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4B141B92803031900E9C7E2 /* Localizable.strings */; };
+		D4CF404528D5140B0002A1A9 /* RVS_BasicGCDTimer in Frameworks */ = {isa = PBXBuildFile; productRef = D4CF404428D5140B0002A1A9 /* RVS_BasicGCDTimer */; };
+		D4CF404828D514410002A1A9 /* RVS_Generic_Swift_Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = D4CF404728D514410002A1A9 /* RVS_Generic_Swift_Toolbox */; };
 		D4E610062803202600F562A9 /* let's go digital regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E610052803202600F562A9 /* let's go digital regular.ttf */; };
 		D4E6100D28035BAD00F562A9 /* RVS_MaskButton_TestHarness_TabBase_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6100C28035BAD00F562A9 /* RVS_MaskButton_TestHarness_TabBase_ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -72,8 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4995B352846E89500E468C1 /* RVS_Generic_Swift_Toolbox in Frameworks */,
-				D4995B372846E89500E468C1 /* RVS_BasicGCDTimer in Frameworks */,
+				D4CF404828D514410002A1A9 /* RVS_Generic_Swift_Toolbox in Frameworks */,
+				D4CF404528D5140B0002A1A9 /* RVS_BasicGCDTimer in Frameworks */,
 				D4902FC22805AB8000D4DD3D /* RVS_MaskButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,15 +172,7 @@
 				D46197DC2802F7F200EC71A9 /* Tests */,
 				D4902FB02805AA9F00D4DD3D /* RVS_MaskButton.framework */,
 				D4902FB82805AA9F00D4DD3D /* RVS_MaskButton_TestHarness.app */,
-				D4995B332846E89500E468C1 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		D4995B332846E89500E468C1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +195,8 @@
 			);
 			name = RVS_MaskButton_TestHarness;
 			packageProductDependencies = (
-				D4995B342846E89500E468C1 /* RVS_Generic_Swift_Toolbox */,
-				D4995B362846E89500E468C1 /* RVS_BasicGCDTimer */,
+				D4CF404428D5140B0002A1A9 /* RVS_BasicGCDTimer */,
+				D4CF404728D514410002A1A9 /* RVS_Generic_Swift_Toolbox */,
 			);
 			productName = RVS_MaskButton_TestHarness;
 			productReference = D4902FB82805AA9F00D4DD3D /* RVS_MaskButton_TestHarness.app */;
@@ -236,7 +228,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					D475EACE2802F6DB0064A6AC = {
 						CreatedOnToolsVersion = 13.3;
@@ -256,8 +248,8 @@
 			);
 			mainGroup = D475EAB72802F5F80064A6AC;
 			packageReferences = (
-				D4E60FFB280313AA00F562A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */,
-				D4E6100728033F2A00F562A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */,
+				D4CF404328D5140B0002A1A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */,
+				D4CF404628D514410002A1A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */,
 			);
 			productRefGroup = D475EAB72802F5F80064A6AC;
 			projectDirPath = "";
@@ -287,6 +279,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		D449AA482805ACF0000C1FD8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -305,6 +298,7 @@
 		};
 		D449AA492805AD06000C1FD8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -660,34 +654,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D4E60FFB280313AA00F562A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.1;
-			};
-		};
-		D4E6100728033F2A00F562A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */ = {
+		D4CF404328D5140B0002A1A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RiftValleySoftware/RVS_BasicGCDTimer.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.1;
+				minimumVersion = 1.1.2;
+			};
+		};
+		D4CF404628D514410002A1A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D4995B342846E89500E468C1 /* RVS_Generic_Swift_Toolbox */ = {
+		D4CF404428D5140B0002A1A9 /* RVS_BasicGCDTimer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D4E60FFB280313AA00F562A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */;
-			productName = RVS_Generic_Swift_Toolbox;
-		};
-		D4995B362846E89500E468C1 /* RVS_BasicGCDTimer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4E6100728033F2A00F562A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */;
+			package = D4CF404328D5140B0002A1A9 /* XCRemoteSwiftPackageReference "RVS_BasicGCDTimer" */;
 			productName = RVS_BasicGCDTimer;
+		};
+		D4CF404728D514410002A1A9 /* RVS_Generic_Swift_Toolbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4CF404628D514410002A1A9 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */;
+			productName = RVS_Generic_Swift_Toolbox;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
