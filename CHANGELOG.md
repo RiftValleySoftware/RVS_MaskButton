@@ -1,3 +1,7 @@
+**1.2.4** *October 6, 2022*
+
+- Just a dependency. No API changes.
+
 **1.2.3** *September 16, 2022*
 
 - Just updated tools and dependencies. No API changes.
