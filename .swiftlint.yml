@@ -2,14 +2,15 @@ disabled_rules:
 - identifier_name
 - nesting
 - function_parameter_count
-- function_body_length
 - trailing_whitespace
 - type_name
-- file_length
-- type_body_length
-- inclusive_language
-- large_tuple
-- empty_enum_arguments
+- todo
+- inert_defer
+- syntactic_sugar
+- implicit_getter
+- non_optional_string_data_conversion
+- private_over_fileprivate
+- legacy_hashing
 
 opt_in_rules:
 - control_statement
@@ -18,19 +19,28 @@ opt_in_rules:
 - colon
 - comma
 
-excluded:
-- Package.swift
-- ".build"
-- docs
-- img
-- spec
-- Project-Meta
-- DerivedData
+function_body_length:
+- 99 # warning
+- 100 #error
+
+file_length:
+- 1999 # warning
+- 2000 # error
+
+type_body_length:
+- 399 # warning
+- 400 # error
 
 line_length:
-- 222 # warning
-- 223 # error
+- 299 # warning
+- 300 # error
 
 cyclomatic_complexity:
-- 09 # warning
-- 10 # error
+- 11 # warning
+- 12 # error
+
+excluded:
+- Pods
+- Carthage
+- .build
+- Tests

@@ -1,3 +1,15 @@
+**1.3.7** *January 19, 2025*
+
+- Yay! SwiftLint is back!
+- Updated to the latest dependencies.
+- Updated to the latest Xcode settings.
+
+**1.3.6** *January 6, 2023*
+
+- Added privacy declarations.
+- Had to remove SwiftLint, as it no longer works. :(
+- Looks like I messed up, and didn't do a changelog for the intermediate releases. My bad. >:(
+
 **1.2.4** *October 6, 2022*
 
 - Just a dependency. No API changes.

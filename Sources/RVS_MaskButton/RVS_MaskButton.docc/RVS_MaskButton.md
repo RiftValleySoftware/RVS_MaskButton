@@ -168,7 +168,7 @@ The playing card images that we use in the test harness app, came from [Wikimedi
 
 ## License
 
- © Copyright 2022, The Great Rift Valley Software Company
+ © Copyright 2022-2025, The Great Rift Valley Software Company
  
 The code is [MIT license](https://opensource.org/licenses/MIT). Use it as you will. Attribution is appreciated.
 
